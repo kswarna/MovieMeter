@@ -1,0 +1,704 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DataLoaderModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CriticRating">
+          <Key>
+            <PropertyRef Name="CriticRatingId" />
+          </Key>
+          <Property Name="CriticRatingId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CriticSiteId" Type="int" />
+          <Property Name="MovieDetailID" Type="int" Nullable="false" />
+          <Property Name="Rating" Type="decimal" Precision="5" Scale="3" />
+        </EntityType>
+        <EntityType Name="CriticRatingLoader">
+          <Key>
+            <PropertyRef Name="CriticRatingId" />
+          </Key>
+          <Property Name="CriticRatingId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CriticSiteId" Type="int" />
+          <Property Name="MovieDetailID" Type="int" Nullable="false" />
+          <Property Name="Rating" Type="decimal" Precision="5" Scale="3" />
+        </EntityType>
+        <EntityType Name="CriticSites">
+          <Key>
+            <PropertyRef Name="CriticSiteId" />
+          </Key>
+          <Property Name="CriticSiteId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SiteName" Type="varchar" MaxLength="255" />
+          <Property Name="WebUrl" Type="varchar" MaxLength="255" />
+          <Property Name="AlexaRating" Type="int" />
+        </EntityType>
+        <EntityType Name="Language">
+          <Key>
+            <PropertyRef Name="LanguageID" />
+          </Key>
+          <Property Name="LanguageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LanguageName" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Movie">
+          <Key>
+            <PropertyRef Name="MovieID" />
+          </Key>
+          <Property Name="MovieID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" />
+          <Property Name="SmallPictureUrl" Type="varchar" MaxLength="255" />
+          <Property Name="LargePictureUrl" Type="varchar" MaxLength="255" />
+          <Property Name="HasReleased" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="LanguageID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MovieDetail">
+          <Key>
+            <PropertyRef Name="MovieDetailID" />
+          </Key>
+          <Property Name="MovieDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MovieID" Type="int" Nullable="false" />
+          <Property Name="DetailsUrl" Type="varchar" MaxLength="255" />
+          <Property Name="GalleryUrl" Type="varchar" MaxLength="255" />
+          <Property Name="TraillerUrl" Type="varchar" MaxLength="255" />
+          <Property Name="ScheduleUrl" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="MovieDetailLoader">
+          <Key>
+            <PropertyRef Name="MovieDetailID" />
+          </Key>
+          <Property Name="MovieDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MovieID" Type="int" Nullable="false" />
+          <Property Name="DetailsUrl" Type="varchar" MaxLength="255" />
+          <Property Name="GalleryUrl" Type="varchar" MaxLength="255" />
+          <Property Name="TraillerUrl" Type="varchar" MaxLength="255" />
+          <Property Name="ScheduleUrl" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="MovieLoader">
+          <Key>
+            <PropertyRef Name="MovieID" />
+          </Key>
+          <Property Name="MovieID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" />
+          <Property Name="SmallPictureUrl" Type="varchar" MaxLength="255" />
+          <Property Name="LargePictureUrl" Type="varchar" MaxLength="255" />
+          <Property Name="ReleaseDate" Type="date" />
+          <Property Name="LanguageID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserRating">
+          <Key>
+            <PropertyRef Name="UserRatingId" />
+          </Key>
+          <Property Name="UserRatingId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MovieDetailID" Type="int" Nullable="false" />
+          <Property Name="Rating" Type="decimal" Precision="5" Scale="3" />
+          <Property Name="NumberOfUsers" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserRatingLoader">
+          <Key>
+            <PropertyRef Name="UserRatingId" />
+          </Key>
+          <Property Name="UserRatingId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MovieDetailID" Type="int" Nullable="false" />
+          <Property Name="Rating" Type="decimal" Precision="5" Scale="3" />
+          <Property Name="NumberOfUsers" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__CriticRat__Criti__59063A47">
+          <End Role="CriticSites" Type="Self.CriticSites" Multiplicity="0..1" />
+          <End Role="CriticRating" Type="Self.CriticRating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CriticSites">
+              <PropertyRef Name="CriticSiteId" />
+            </Principal>
+            <Dependent Role="CriticRating">
+              <PropertyRef Name="CriticSiteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CriticRat__Criti__656C112C">
+          <End Role="CriticSites" Type="Self.CriticSites" Multiplicity="0..1" />
+          <End Role="CriticRatingLoader" Type="Self.CriticRatingLoader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CriticSites">
+              <PropertyRef Name="CriticSiteId" />
+            </Principal>
+            <Dependent Role="CriticRatingLoader">
+              <PropertyRef Name="CriticSiteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CriticRat__Movie__5812160E">
+          <End Role="MovieDetail" Type="Self.MovieDetail" Multiplicity="1" />
+          <End Role="CriticRating" Type="Self.CriticRating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MovieDetail">
+              <PropertyRef Name="MovieDetailID" />
+            </Principal>
+            <Dependent Role="CriticRating">
+              <PropertyRef Name="MovieDetailID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CriticRat__Movie__6477ECF3">
+          <End Role="MovieDetailLoader" Type="Self.MovieDetailLoader" Multiplicity="1" />
+          <End Role="CriticRatingLoader" Type="Self.CriticRatingLoader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MovieDetailLoader">
+              <PropertyRef Name="MovieDetailID" />
+            </Principal>
+            <Dependent Role="CriticRatingLoader">
+              <PropertyRef Name="MovieDetailID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Movie__LanguageI__52593CB8">
+          <End Role="Language" Type="Self.Language" Multiplicity="1" />
+          <End Role="Movie" Type="Self.Movie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Language">
+              <PropertyRef Name="LanguageID" />
+            </Principal>
+            <Dependent Role="Movie">
+              <PropertyRef Name="LanguageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MovieDeta__Movie__5535A963">
+          <End Role="Movie" Type="Self.Movie" Multiplicity="1" />
+          <End Role="MovieDetail" Type="Self.MovieDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movie">
+              <PropertyRef Name="MovieID" />
+            </Principal>
+            <Dependent Role="MovieDetail">
+              <PropertyRef Name="MovieID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MovieDeta__Movie__619B8048">
+          <End Role="MovieLoader" Type="Self.MovieLoader" Multiplicity="1" />
+          <End Role="MovieDetailLoader" Type="Self.MovieDetailLoader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MovieLoader">
+              <PropertyRef Name="MovieID" />
+            </Principal>
+            <Dependent Role="MovieDetailLoader">
+              <PropertyRef Name="MovieID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MovieLoad__Langu__5EBF139D">
+          <End Role="Language" Type="Self.Language" Multiplicity="1" />
+          <End Role="MovieLoader" Type="Self.MovieLoader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Language">
+              <PropertyRef Name="LanguageID" />
+            </Principal>
+            <Dependent Role="MovieLoader">
+              <PropertyRef Name="LanguageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserRatin__Movie__5BE2A6F2">
+          <End Role="MovieDetail" Type="Self.MovieDetail" Multiplicity="1" />
+          <End Role="UserRating" Type="Self.UserRating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MovieDetail">
+              <PropertyRef Name="MovieDetailID" />
+            </Principal>
+            <Dependent Role="UserRating">
+              <PropertyRef Name="MovieDetailID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserRatin__Movie__68487DD7">
+          <End Role="MovieDetailLoader" Type="Self.MovieDetailLoader" Multiplicity="1" />
+          <End Role="UserRatingLoader" Type="Self.UserRatingLoader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MovieDetailLoader">
+              <PropertyRef Name="MovieDetailID" />
+            </Principal>
+            <Dependent Role="UserRatingLoader">
+              <PropertyRef Name="MovieDetailID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DataLoaderModelStoreContainer">
+          <EntitySet Name="CriticRating" EntityType="Self.CriticRating" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CriticRatingLoader" EntityType="Self.CriticRatingLoader" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CriticSites" EntityType="Self.CriticSites" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Language" EntityType="Self.Language" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Movie" EntityType="Self.Movie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MovieDetail" EntityType="Self.MovieDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MovieDetailLoader" EntityType="Self.MovieDetailLoader" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MovieLoader" EntityType="Self.MovieLoader" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserRating" EntityType="Self.UserRating" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserRatingLoader" EntityType="Self.UserRatingLoader" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__CriticRat__Criti__59063A47" Association="Self.FK__CriticRat__Criti__59063A47">
+            <End Role="CriticSites" EntitySet="CriticSites" />
+            <End Role="CriticRating" EntitySet="CriticRating" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CriticRat__Criti__656C112C" Association="Self.FK__CriticRat__Criti__656C112C">
+            <End Role="CriticSites" EntitySet="CriticSites" />
+            <End Role="CriticRatingLoader" EntitySet="CriticRatingLoader" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CriticRat__Movie__5812160E" Association="Self.FK__CriticRat__Movie__5812160E">
+            <End Role="MovieDetail" EntitySet="MovieDetail" />
+            <End Role="CriticRating" EntitySet="CriticRating" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CriticRat__Movie__6477ECF3" Association="Self.FK__CriticRat__Movie__6477ECF3">
+            <End Role="MovieDetailLoader" EntitySet="MovieDetailLoader" />
+            <End Role="CriticRatingLoader" EntitySet="CriticRatingLoader" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Movie__LanguageI__52593CB8" Association="Self.FK__Movie__LanguageI__52593CB8">
+            <End Role="Language" EntitySet="Language" />
+            <End Role="Movie" EntitySet="Movie" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MovieDeta__Movie__5535A963" Association="Self.FK__MovieDeta__Movie__5535A963">
+            <End Role="Movie" EntitySet="Movie" />
+            <End Role="MovieDetail" EntitySet="MovieDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MovieDeta__Movie__619B8048" Association="Self.FK__MovieDeta__Movie__619B8048">
+            <End Role="MovieLoader" EntitySet="MovieLoader" />
+            <End Role="MovieDetailLoader" EntitySet="MovieDetailLoader" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MovieLoad__Langu__5EBF139D" Association="Self.FK__MovieLoad__Langu__5EBF139D">
+            <End Role="Language" EntitySet="Language" />
+            <End Role="MovieLoader" EntitySet="MovieLoader" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserRatin__Movie__5BE2A6F2" Association="Self.FK__UserRatin__Movie__5BE2A6F2">
+            <End Role="MovieDetail" EntitySet="MovieDetail" />
+            <End Role="UserRating" EntitySet="UserRating" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserRatin__Movie__68487DD7" Association="Self.FK__UserRatin__Movie__68487DD7">
+            <End Role="MovieDetailLoader" EntitySet="MovieDetailLoader" />
+            <End Role="UserRatingLoader" EntitySet="UserRatingLoader" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DataLoaderModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CriticRating">
+          <Key>
+            <PropertyRef Name="CriticRatingId" />
+          </Key>
+          <Property Name="CriticRatingId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CriticSiteId" Type="Int32" />
+          <Property Name="MovieDetailID" Type="Int32" Nullable="false" />
+          <Property Name="Rating" Type="Decimal" Precision="5" Scale="3" />
+          <NavigationProperty Name="CriticSite" Relationship="Self.FK__CriticRat__Criti__59063A47" FromRole="CriticRating" ToRole="CriticSites" />
+          <NavigationProperty Name="MovieDetail" Relationship="Self.FK__CriticRat__Movie__5812160E" FromRole="CriticRating" ToRole="MovieDetail" />
+        </EntityType>
+        <EntityType Name="CriticRatingLoader">
+          <Key>
+            <PropertyRef Name="CriticRatingId" />
+          </Key>
+          <Property Name="CriticRatingId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CriticSiteId" Type="Int32" />
+          <Property Name="MovieDetailID" Type="Int32" Nullable="false" />
+          <Property Name="Rating" Type="Decimal" Precision="5" Scale="3" />
+          <NavigationProperty Name="CriticSite" Relationship="Self.FK__CriticRat__Criti__656C112C" FromRole="CriticRatingLoader" ToRole="CriticSites" />
+          <NavigationProperty Name="MovieDetailLoader" Relationship="Self.FK__CriticRat__Movie__6477ECF3" FromRole="CriticRatingLoader" ToRole="MovieDetailLoader" />
+        </EntityType>
+        <EntityType Name="CriticSite">
+          <Key>
+            <PropertyRef Name="CriticSiteId" />
+          </Key>
+          <Property Name="CriticSiteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SiteName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="WebUrl" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="AlexaRating" Type="Int32" />
+          <NavigationProperty Name="CriticRatings" Relationship="Self.FK__CriticRat__Criti__59063A47" FromRole="CriticSites" ToRole="CriticRating" />
+          <NavigationProperty Name="CriticRatingLoaders" Relationship="Self.FK__CriticRat__Criti__656C112C" FromRole="CriticSites" ToRole="CriticRatingLoader" />
+        </EntityType>
+        <EntityType Name="Language">
+          <Key>
+            <PropertyRef Name="LanguageID" />
+          </Key>
+          <Property Name="LanguageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LanguageName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Movies" Relationship="Self.FK__Movie__LanguageI__52593CB8" FromRole="Language" ToRole="Movie" />
+          <NavigationProperty Name="MovieLoaders" Relationship="Self.FK__MovieLoad__Langu__5EBF139D" FromRole="Language" ToRole="MovieLoader" />
+        </EntityType>
+        <EntityType Name="Movie">
+          <Key>
+            <PropertyRef Name="MovieID" />
+          </Key>
+          <Property Name="MovieID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="SmallPictureUrl" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="LargePictureUrl" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="HasReleased" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LanguageID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Language" Relationship="Self.FK__Movie__LanguageI__52593CB8" FromRole="Movie" ToRole="Language" />
+          <NavigationProperty Name="MovieDetails" Relationship="Self.FK__MovieDeta__Movie__5535A963" FromRole="Movie" ToRole="MovieDetail" />
+        </EntityType>
+        <EntityType Name="MovieDetail">
+          <Key>
+            <PropertyRef Name="MovieDetailID" />
+          </Key>
+          <Property Name="MovieDetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MovieID" Type="Int32" Nullable="false" />
+          <Property Name="DetailsUrl" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="GalleryUrl" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="TraillerUrl" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ScheduleUrl" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CriticRatings" Relationship="Self.FK__CriticRat__Movie__5812160E" FromRole="MovieDetail" ToRole="CriticRating" />
+          <NavigationProperty Name="Movie" Relationship="Self.FK__MovieDeta__Movie__5535A963" FromRole="MovieDetail" ToRole="Movie" />
+          <NavigationProperty Name="UserRatings" Relationship="Self.FK__UserRatin__Movie__5BE2A6F2" FromRole="MovieDetail" ToRole="UserRating" />
+        </EntityType>
+        <EntityType Name="MovieDetailLoader">
+          <Key>
+            <PropertyRef Name="MovieDetailID" />
+          </Key>
+          <Property Name="MovieDetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MovieID" Type="Int32" Nullable="false" />
+          <Property Name="DetailsUrl" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="GalleryUrl" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="TraillerUrl" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ScheduleUrl" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CriticRatingLoaders" Relationship="Self.FK__CriticRat__Movie__6477ECF3" FromRole="MovieDetailLoader" ToRole="CriticRatingLoader" />
+          <NavigationProperty Name="MovieLoader" Relationship="Self.FK__MovieDeta__Movie__619B8048" FromRole="MovieDetailLoader" ToRole="MovieLoader" />
+          <NavigationProperty Name="UserRatingLoaders" Relationship="Self.FK__UserRatin__Movie__68487DD7" FromRole="MovieDetailLoader" ToRole="UserRatingLoader" />
+        </EntityType>
+        <EntityType Name="MovieLoader">
+          <Key>
+            <PropertyRef Name="MovieID" />
+          </Key>
+          <Property Name="MovieID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="SmallPictureUrl" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="LargePictureUrl" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ReleaseDate" Type="DateTime" Precision="0" />
+          <Property Name="LanguageID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Language" Relationship="Self.FK__MovieLoad__Langu__5EBF139D" FromRole="MovieLoader" ToRole="Language" />
+          <NavigationProperty Name="MovieDetailLoaders" Relationship="Self.FK__MovieDeta__Movie__619B8048" FromRole="MovieLoader" ToRole="MovieDetailLoader" />
+        </EntityType>
+        <EntityType Name="UserRating">
+          <Key>
+            <PropertyRef Name="UserRatingId" />
+          </Key>
+          <Property Name="UserRatingId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MovieDetailID" Type="Int32" Nullable="false" />
+          <Property Name="Rating" Type="Decimal" Precision="5" Scale="3" />
+          <Property Name="NumberOfUsers" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MovieDetail" Relationship="Self.FK__UserRatin__Movie__5BE2A6F2" FromRole="UserRating" ToRole="MovieDetail" />
+        </EntityType>
+        <EntityType Name="UserRatingLoader">
+          <Key>
+            <PropertyRef Name="UserRatingId" />
+          </Key>
+          <Property Name="UserRatingId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MovieDetailID" Type="Int32" Nullable="false" />
+          <Property Name="Rating" Type="Decimal" Precision="5" Scale="3" />
+          <Property Name="NumberOfUsers" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MovieDetailLoader" Relationship="Self.FK__UserRatin__Movie__68487DD7" FromRole="UserRatingLoader" ToRole="MovieDetailLoader" />
+        </EntityType>
+        <Association Name="FK__CriticRat__Criti__59063A47">
+          <End Role="CriticSites" Type="Self.CriticSite" Multiplicity="0..1" />
+          <End Role="CriticRating" Type="Self.CriticRating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CriticSites">
+              <PropertyRef Name="CriticSiteId" />
+            </Principal>
+            <Dependent Role="CriticRating">
+              <PropertyRef Name="CriticSiteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CriticRat__Movie__5812160E">
+          <End Role="MovieDetail" Type="Self.MovieDetail" Multiplicity="1" />
+          <End Role="CriticRating" Type="Self.CriticRating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MovieDetail">
+              <PropertyRef Name="MovieDetailID" />
+            </Principal>
+            <Dependent Role="CriticRating">
+              <PropertyRef Name="MovieDetailID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CriticRat__Criti__656C112C">
+          <End Role="CriticSites" Type="Self.CriticSite" Multiplicity="0..1" />
+          <End Role="CriticRatingLoader" Type="Self.CriticRatingLoader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CriticSites">
+              <PropertyRef Name="CriticSiteId" />
+            </Principal>
+            <Dependent Role="CriticRatingLoader">
+              <PropertyRef Name="CriticSiteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CriticRat__Movie__6477ECF3">
+          <End Role="MovieDetailLoader" Type="Self.MovieDetailLoader" Multiplicity="1" />
+          <End Role="CriticRatingLoader" Type="Self.CriticRatingLoader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MovieDetailLoader">
+              <PropertyRef Name="MovieDetailID" />
+            </Principal>
+            <Dependent Role="CriticRatingLoader">
+              <PropertyRef Name="MovieDetailID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Movie__LanguageI__52593CB8">
+          <End Role="Language" Type="Self.Language" Multiplicity="1" />
+          <End Role="Movie" Type="Self.Movie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Language">
+              <PropertyRef Name="LanguageID" />
+            </Principal>
+            <Dependent Role="Movie">
+              <PropertyRef Name="LanguageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MovieLoad__Langu__5EBF139D">
+          <End Role="Language" Type="Self.Language" Multiplicity="1" />
+          <End Role="MovieLoader" Type="Self.MovieLoader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Language">
+              <PropertyRef Name="LanguageID" />
+            </Principal>
+            <Dependent Role="MovieLoader">
+              <PropertyRef Name="LanguageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MovieDeta__Movie__5535A963">
+          <End Role="Movie" Type="Self.Movie" Multiplicity="1" />
+          <End Role="MovieDetail" Type="Self.MovieDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movie">
+              <PropertyRef Name="MovieID" />
+            </Principal>
+            <Dependent Role="MovieDetail">
+              <PropertyRef Name="MovieID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserRatin__Movie__5BE2A6F2">
+          <End Role="MovieDetail" Type="Self.MovieDetail" Multiplicity="1" />
+          <End Role="UserRating" Type="Self.UserRating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MovieDetail">
+              <PropertyRef Name="MovieDetailID" />
+            </Principal>
+            <Dependent Role="UserRating">
+              <PropertyRef Name="MovieDetailID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MovieDeta__Movie__619B8048">
+          <End Role="MovieLoader" Type="Self.MovieLoader" Multiplicity="1" />
+          <End Role="MovieDetailLoader" Type="Self.MovieDetailLoader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MovieLoader">
+              <PropertyRef Name="MovieID" />
+            </Principal>
+            <Dependent Role="MovieDetailLoader">
+              <PropertyRef Name="MovieID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserRatin__Movie__68487DD7">
+          <End Role="MovieDetailLoader" Type="Self.MovieDetailLoader" Multiplicity="1" />
+          <End Role="UserRatingLoader" Type="Self.UserRatingLoader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MovieDetailLoader">
+              <PropertyRef Name="MovieDetailID" />
+            </Principal>
+            <Dependent Role="UserRatingLoader">
+              <PropertyRef Name="MovieDetailID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DataLoaderEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CriticRatings" EntityType="Self.CriticRating" />
+          <EntitySet Name="CriticRatingLoaders" EntityType="Self.CriticRatingLoader" />
+          <EntitySet Name="CriticSites" EntityType="Self.CriticSite" />
+          <EntitySet Name="Languages" EntityType="Self.Language" />
+          <EntitySet Name="Movies" EntityType="Self.Movie" />
+          <EntitySet Name="MovieDetails" EntityType="Self.MovieDetail" />
+          <EntitySet Name="MovieDetailLoaders" EntityType="Self.MovieDetailLoader" />
+          <EntitySet Name="MovieLoaders" EntityType="Self.MovieLoader" />
+          <EntitySet Name="UserRatings" EntityType="Self.UserRating" />
+          <EntitySet Name="UserRatingLoaders" EntityType="Self.UserRatingLoader" />
+          <AssociationSet Name="FK__CriticRat__Criti__59063A47" Association="Self.FK__CriticRat__Criti__59063A47">
+            <End Role="CriticSites" EntitySet="CriticSites" />
+            <End Role="CriticRating" EntitySet="CriticRatings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CriticRat__Movie__5812160E" Association="Self.FK__CriticRat__Movie__5812160E">
+            <End Role="MovieDetail" EntitySet="MovieDetails" />
+            <End Role="CriticRating" EntitySet="CriticRatings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CriticRat__Criti__656C112C" Association="Self.FK__CriticRat__Criti__656C112C">
+            <End Role="CriticSites" EntitySet="CriticSites" />
+            <End Role="CriticRatingLoader" EntitySet="CriticRatingLoaders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CriticRat__Movie__6477ECF3" Association="Self.FK__CriticRat__Movie__6477ECF3">
+            <End Role="MovieDetailLoader" EntitySet="MovieDetailLoaders" />
+            <End Role="CriticRatingLoader" EntitySet="CriticRatingLoaders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Movie__LanguageI__52593CB8" Association="Self.FK__Movie__LanguageI__52593CB8">
+            <End Role="Language" EntitySet="Languages" />
+            <End Role="Movie" EntitySet="Movies" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MovieLoad__Langu__5EBF139D" Association="Self.FK__MovieLoad__Langu__5EBF139D">
+            <End Role="Language" EntitySet="Languages" />
+            <End Role="MovieLoader" EntitySet="MovieLoaders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MovieDeta__Movie__5535A963" Association="Self.FK__MovieDeta__Movie__5535A963">
+            <End Role="Movie" EntitySet="Movies" />
+            <End Role="MovieDetail" EntitySet="MovieDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserRatin__Movie__5BE2A6F2" Association="Self.FK__UserRatin__Movie__5BE2A6F2">
+            <End Role="MovieDetail" EntitySet="MovieDetails" />
+            <End Role="UserRating" EntitySet="UserRatings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MovieDeta__Movie__619B8048" Association="Self.FK__MovieDeta__Movie__619B8048">
+            <End Role="MovieLoader" EntitySet="MovieLoaders" />
+            <End Role="MovieDetailLoader" EntitySet="MovieDetailLoaders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserRatin__Movie__68487DD7" Association="Self.FK__UserRatin__Movie__68487DD7">
+            <End Role="MovieDetailLoader" EntitySet="MovieDetailLoaders" />
+            <End Role="UserRatingLoader" EntitySet="UserRatingLoaders" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DataLoaderModelStoreContainer" CdmEntityContainer="DataLoaderEntities">
+          <EntitySetMapping Name="CriticRatings">
+            <EntityTypeMapping TypeName="DataLoaderModel.CriticRating">
+              <MappingFragment StoreEntitySet="CriticRating">
+                <ScalarProperty Name="CriticRatingId" ColumnName="CriticRatingId" />
+                <ScalarProperty Name="CriticSiteId" ColumnName="CriticSiteId" />
+                <ScalarProperty Name="MovieDetailID" ColumnName="MovieDetailID" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CriticRatingLoaders">
+            <EntityTypeMapping TypeName="DataLoaderModel.CriticRatingLoader">
+              <MappingFragment StoreEntitySet="CriticRatingLoader">
+                <ScalarProperty Name="CriticRatingId" ColumnName="CriticRatingId" />
+                <ScalarProperty Name="CriticSiteId" ColumnName="CriticSiteId" />
+                <ScalarProperty Name="MovieDetailID" ColumnName="MovieDetailID" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CriticSites">
+            <EntityTypeMapping TypeName="DataLoaderModel.CriticSite">
+              <MappingFragment StoreEntitySet="CriticSites">
+                <ScalarProperty Name="CriticSiteId" ColumnName="CriticSiteId" />
+                <ScalarProperty Name="SiteName" ColumnName="SiteName" />
+                <ScalarProperty Name="WebUrl" ColumnName="WebUrl" />
+                <ScalarProperty Name="AlexaRating" ColumnName="AlexaRating" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Languages">
+            <EntityTypeMapping TypeName="DataLoaderModel.Language">
+              <MappingFragment StoreEntitySet="Language">
+                <ScalarProperty Name="LanguageID" ColumnName="LanguageID" />
+                <ScalarProperty Name="LanguageName" ColumnName="LanguageName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Movies">
+            <EntityTypeMapping TypeName="DataLoaderModel.Movie">
+              <MappingFragment StoreEntitySet="Movie">
+                <ScalarProperty Name="MovieID" ColumnName="MovieID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="SmallPictureUrl" ColumnName="SmallPictureUrl" />
+                <ScalarProperty Name="LargePictureUrl" ColumnName="LargePictureUrl" />
+                <ScalarProperty Name="HasReleased" ColumnName="HasReleased" />
+                <ScalarProperty Name="LanguageID" ColumnName="LanguageID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MovieDetails">
+            <EntityTypeMapping TypeName="DataLoaderModel.MovieDetail">
+              <MappingFragment StoreEntitySet="MovieDetail">
+                <ScalarProperty Name="MovieDetailID" ColumnName="MovieDetailID" />
+                <ScalarProperty Name="MovieID" ColumnName="MovieID" />
+                <ScalarProperty Name="DetailsUrl" ColumnName="DetailsUrl" />
+                <ScalarProperty Name="GalleryUrl" ColumnName="GalleryUrl" />
+                <ScalarProperty Name="TraillerUrl" ColumnName="TraillerUrl" />
+                <ScalarProperty Name="ScheduleUrl" ColumnName="ScheduleUrl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MovieDetailLoaders">
+            <EntityTypeMapping TypeName="DataLoaderModel.MovieDetailLoader">
+              <MappingFragment StoreEntitySet="MovieDetailLoader">
+                <ScalarProperty Name="MovieDetailID" ColumnName="MovieDetailID" />
+                <ScalarProperty Name="MovieID" ColumnName="MovieID" />
+                <ScalarProperty Name="DetailsUrl" ColumnName="DetailsUrl" />
+                <ScalarProperty Name="GalleryUrl" ColumnName="GalleryUrl" />
+                <ScalarProperty Name="TraillerUrl" ColumnName="TraillerUrl" />
+                <ScalarProperty Name="ScheduleUrl" ColumnName="ScheduleUrl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MovieLoaders">
+            <EntityTypeMapping TypeName="DataLoaderModel.MovieLoader">
+              <MappingFragment StoreEntitySet="MovieLoader">
+                <ScalarProperty Name="MovieID" ColumnName="MovieID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="SmallPictureUrl" ColumnName="SmallPictureUrl" />
+                <ScalarProperty Name="LargePictureUrl" ColumnName="LargePictureUrl" />
+                <ScalarProperty Name="ReleaseDate" ColumnName="ReleaseDate" />
+                <ScalarProperty Name="LanguageID" ColumnName="LanguageID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserRatings">
+            <EntityTypeMapping TypeName="DataLoaderModel.UserRating">
+              <MappingFragment StoreEntitySet="UserRating">
+                <ScalarProperty Name="UserRatingId" ColumnName="UserRatingId" />
+                <ScalarProperty Name="MovieDetailID" ColumnName="MovieDetailID" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="NumberOfUsers" ColumnName="NumberOfUsers" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserRatingLoaders">
+            <EntityTypeMapping TypeName="DataLoaderModel.UserRatingLoader">
+              <MappingFragment StoreEntitySet="UserRatingLoader">
+                <ScalarProperty Name="UserRatingId" ColumnName="UserRatingId" />
+                <ScalarProperty Name="MovieDetailID" ColumnName="MovieDetailID" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="NumberOfUsers" ColumnName="NumberOfUsers" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

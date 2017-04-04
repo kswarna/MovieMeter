@@ -1,0 +1,9 @@
+C:\TFS-KS\MovieMeter\ProjectManhattan.DTO\bin\Debug\ProjectManhattan.DTO.dll
+C:\TFS-KS\MovieMeter\ProjectManhattan.DTO\bin\Debug\ProjectManhattan.DTO.pdb
+C:\TFS-KS\MovieMeter\ProjectManhattan.DTO\obj\Debug\ProjectManhattan.DTO.csprojResolveAssemblyReference.cache
+C:\TFS-KS\MovieMeter\ProjectManhattan.DTO\obj\Debug\ProjectManhattan.DTO.dll
+C:\TFS-KS\MovieMeter\ProjectManhattan.DTO\obj\Debug\ProjectManhattan.DTO.pdb
+C:\TFS-KS\MovieMeter\ProjectManhattan.DTO\obj\Debug\ProjectManhattan.DTO.dll.mdb
+C:\TFS-KS\MovieMeter\ProjectManhattan.DTO\bin\Debug\ProjectManhattan.DTO.dll.mdb
+C:\TFS-KS\MovieMeter\ProjectManhattan.DTO\obj\Debug\ProjectManhattan.DTO.dll.mdb
+C:\TFS-KS\MovieMeter\ProjectManhattan.DTO\bin\Debug\ProjectManhattan.DTO.dll.mdb

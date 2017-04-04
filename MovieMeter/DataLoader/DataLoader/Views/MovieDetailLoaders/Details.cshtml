@@ -1,0 +1,58 @@
+﻿@model DataLoader.MovieDetailLoader
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>MovieDetailLoader</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DetailsUrl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DetailsUrl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GalleryUrl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GalleryUrl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TraillerUrl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TraillerUrl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ScheduleUrl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ScheduleUrl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MovieLoader.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MovieLoader.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MovieDetailID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

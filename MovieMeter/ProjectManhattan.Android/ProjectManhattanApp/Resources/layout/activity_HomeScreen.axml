@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <LinearLayout
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/main_content"
+        android:background="@drawable/main_header_selector">
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="250dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/radioNowPlaying"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/radiobutton_bgcolor_selector"
+                android:button="@null"
+                android:checked="true"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="Now Playing"
+                android:textColor="@drawable/radiobutton_textcolor_selector" />
+            <RadioButton
+                android:id="@+id/radioComingsoon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/radiobutton_bgcolor_selectorRight"
+                android:button="@null"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="Coming Soon"
+                android:textColor="@drawable/radiobutton_textcolor_selector" />
+        </RadioGroup>
+        <EditText
+            android:background="@color/TextBoxBlue"
+            android:drawableRight="@drawable/search"
+            android:layout_width="fill_parent"
+            android:layout_height="35dp"
+            android:layout_margin="10dp"
+            android:hint="  Search Movies, actors, directors"
+            android:textSize="15sp"
+            android:textColor="#CFFFCF"
+            android:textColorHint="#CFFFCF"
+            android:id="@+id/editText1"
+            android:singleLine="true" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:weightSum="2"
+            android:orientation="vertical">
+            <include
+                layout="@layout/hs_MovieList"
+                android:layout_width="fill_parent"
+                android:id="@+id/now_playing"
+                android:layout_weight="1" 
+                android:layout_height="0dp" />
+            <include
+                layout="@layout/hs_MovieList"
+                android:layout_width="fill_parent"
+                android:id="@+id/coming_soon"
+                android:layout_weight="1" 
+                android:layout_height="0dp" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

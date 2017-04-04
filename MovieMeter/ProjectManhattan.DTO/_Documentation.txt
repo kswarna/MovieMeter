@@ -1,0 +1,5 @@
+This folder contais ojects that are to be used across different projects. 
+
+Currently this project contains objects that correspond to the different database tables. This will only be used in the API project to get the data fom the repository. In case of emergency patches, these objects can be passed to frontend services.
+
+Please use one file per class/object.

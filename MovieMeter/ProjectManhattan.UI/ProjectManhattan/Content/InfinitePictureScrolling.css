@@ -1,0 +1,19 @@
+﻿.Released  img {
+    height: 210px;
+    font-family: Novecento, sans-serif;
+    width: 150px;
+}
+.ComingSoon img {
+    height: 210px;
+    width: 150px;
+}
+h2 {
+    font-family: Novecento, sans-serif;
+    color: #200030;
+    position: relative;
+    display: inline-block;
+    margin: 10px;
+    font-weight: bold;
+    font-size: 50px;
+    line-height: 1;
+}

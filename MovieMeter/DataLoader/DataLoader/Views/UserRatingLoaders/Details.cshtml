@@ -1,0 +1,42 @@
+﻿@model DataLoader.UserRatingLoader
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>UserRatingLoader</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Rating)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rating)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumberOfUsers)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumberOfUsers)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MovieDetailLoader.MovieLoader.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MovieDetailLoader.MovieLoader.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.UserRatingId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

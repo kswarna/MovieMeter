@@ -1,0 +1,1 @@
+This is a project used to load/edit/delete data from the database. This project needs to be rewritten from the scratch. 

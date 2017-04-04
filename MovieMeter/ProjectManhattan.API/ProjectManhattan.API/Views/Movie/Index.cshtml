@@ -1,0 +1,80 @@
+﻿@model IEnumerable<ProjectManhattan.DTO.DbTableDTO.MovieDTO>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<link href="@Url.Content("~/Content/InfinitePictureScrolling.css")" rel="stylesheet" type="text/css" />
+<link href="@Url.Content("~/Content/Pages/horizontal.css")" rel="stylesheet" type="text/css" />
+@*<link href="@Url.Content("~/Content/Pages/normalize.css")" rel="stylesheet" type="text/css" />*@
+
+<div class="pagespan mov-container">
+    <div class="wrap">
+        <h2>Released </h2>
+
+       
+
+        <div class="frame" id="forcecentered">
+            <ul class="slidee Released">
+                @foreach (var item in Model.Where(r => r.HasReleased))
+                {
+                    <li>
+                        <a href="@Url.Action("Details", new { id = item.MovieId })">
+                            <img src="@item.SmallPictureString" />
+                            <div>
+                                @item.Name
+                            </div>
+                        </a>
+                    </li>
+                }
+                
+            </ul>
+        </div>
+        <div class="scrollbar">
+            <div class="handle">
+                <div class="mousearea"></div>
+            </div>
+        </div>
+        <div class="controls center">
+            <button class="btn prev"><i class="icon-chevron-left"></i> prev</button>
+            <button class="btn next">next <i class="icon-chevron-right"></i></button>
+        </div>
+    </div>
+
+    <div class="wrap2">
+        <h2>ComingSoon</h2>
+
+
+        <div class="frame" id="forcecentered2">
+            <ul class="slidee ComingSoon">
+                @foreach (var item in Model.Where(r => !r.HasReleased))
+                {
+                    <li>
+                        <img src="@item.SmallPictureString"/>
+                        <div>
+                            @Html.ActionLink(item.Name, "Details", new {id = item.MovieId})
+                        </div>
+                    </li>
+                }
+                
+            </ul>
+        </div>
+        <div class="scrollbar" id="csSb">
+            <div class="handle">
+                <div class="mousearea"></div>
+            </div>
+        </div>
+
+        <div class="controls center">
+            <button class="btn prev2" id ="csprev"><i class="icon-chevron-left"></i> prev</button>
+            <button class="btn next2" id="csNext">next <i class="icon-chevron-right"></i></button>
+        </div>
+    </div>
+</div>
+@section scripts
+{
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="~/Scripts/horizontal.js"></script>
+    <script src="~/Scripts/sly.min.js"></script>
+}
+    

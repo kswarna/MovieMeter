@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/main_content">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/editText1" />
+            <ImageView
+                android:src="@drawable/search"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/imageView1" />
+        </LinearLayout>
+        <Gallery
+            android:id="@+id/GalleryView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+    <!--<ListView
+            android:id="@+id/moviesListView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />-->
+    </LinearLayout>
+</RelativeLayout>

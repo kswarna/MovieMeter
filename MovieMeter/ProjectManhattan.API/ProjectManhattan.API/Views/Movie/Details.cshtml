@@ -1,0 +1,121 @@
+﻿@model ProjectManhattan.ViewModel.MovieDetailViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+@section styles {
+    <link href="@Url.Content("~/Styles/Movie/Details.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Styles/Shared/fontello.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Styles/Shared/animation.css")" rel="stylesheet" type="text/css" />
+<style type="text/css">
+</style> 
+    }
+
+
+<h2>@Model.MovieComplete.Movie.Name</h2>
+<div class="details-picture pull-left">
+    <a href="@Model.MovieComplete.MovieDetail.DetailsUrl">
+        <img id="wiki" src="~/Content/wiki.png" />
+    </a>
+    <a href="@Model.MovieComplete.MovieDetail.GalleryUrl">
+        <img id="gallery" src="~/Content/Gallery.png" />
+    </a>
+    <a href="@Model.MovieComplete.MovieDetail.TraillerUrl">
+        <img id="trailler" src="~/Content/Trailler.png" />
+    </a>
+    <a href="@Model.MovieComplete.MovieDetail.ScheduleUrl">
+        <img id="schedule" src="~/Content/Schedule.png" />
+    </a>
+    <img id="LargeImage" src="@Model.MovieComplete.Movie.LargePictureUrl" />
+
+    <div class="Rate">
+        @if (Model.MovieComplete.CriticRatings.Count() > 0)
+    {
+            <p style="font-size:20px;">What was your reaction?</p>
+    }
+    else
+    {
+            <p style="font-size:20px;">What is your guess?</p>
+    }
+        <span style="font-size:40px;" class="">
+            @*<i class="hoverInvertColor icon-emo-shoot"></i>&nbsp;&nbsp;*@
+            <i id="1" onclick="RateingClick(1)" class="hoverInvertColor icon-emo-cry"></i>&nbsp;&nbsp;
+            <i id="2" onclick="RateingClick(2)" class="hoverInvertColor icon-emo-angry"></i>&nbsp;&nbsp;
+            <i id="3" onclick="RateingClick(3)" class="hoverInvertColor icon-emo-unhappy"></i>&nbsp;&nbsp;
+            <i id="4" onclick="RateingClick(4)" class="hoverInvertColor icon-emo-sleep"></i>&nbsp;&nbsp;
+            <i id="5" onclick="RateingClick(5)" class="hoverInvertColor icon-emo-happy"></i>&nbsp;&nbsp;
+            <i id="6" onclick="RateingClick(6)" class="hoverInvertColor icon-emo-grin"></i>&nbsp;&nbsp;
+            <i id="7" onclick="RateingClick(7)" class="hoverInvertColor icon-emo-sunglasses"></i>&nbsp;&nbsp;
+        </span>
+    </div>
+</div>
+    @if (Model.MovieComplete.CriticRatings.Count() > 0)
+    {
+        <div class="details-ratings pull-right">
+            <div id="RatingsBox">
+                <div class="pull-left">
+                    <div id="UserRatingsBox" style="margin:auto;">
+                        <h3 style="margin-top:0px">User Rating</h3>
+                        <div class="chart pull-left" id="graph" data-percent="@Model.OverallUserRating.ToString("0.##")"></div>
+                    </div>
+                </div>
+                <div class="pull-left">
+                    <div id="CriticRatingBox" style="margin:auto;">
+                        <h3 style="margin-top:0px">Critic Rating</h3>
+                        <div class="chart pull-left" id="graph2" data-percent="@Model.OverallCriticRating.ToString("0.##")"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="Crticsites">
+
+                @foreach (var criticRating in Model.MovieComplete.CriticRatings)
+                {
+                    <div>
+                        @Model.MovieComplete.CriticSites.First(r => r.CriticSiteId == criticRating.CriticSiteId).SiteName
+                        <div class="progress">
+                            @{
+                                var st = criticRating.Rating * 20;
+                                string u = st.ToString() + "%";
+                            }
+                            <div class="progress-bar" role="progressbar" aria-valuenow="@u"
+                                 aria-valuemin="0" aria-valuemax="100" style="width: @u">
+                                @criticRating.Rating
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                                }
+            </div>
+        </div>
+                                }
+
+@section scripts
+{
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="~/Scripts/Movie/Details/RatingMeter.js">
+
+    
+    </script>
+    <script type="text/javascript">
+        drawGraph('graph');
+        drawGraph('graph2');
+        $(window).resize(function () {
+            drawGraph('graph');
+            drawGraph('graph2');
+        });
+        function RateingClick(id)
+        {
+           // alert("thanks for voting");
+            for( i = 1; i <8; i++)
+            {
+                $("#"+i).css('border','none');
+            }
+            $("#" + id).css('border', 'solid');
+            $("#" + id).css('border-color', '#333333');
+            $("#" + id).css('border-width', '2px');
+        }
+
+    </script>
+}

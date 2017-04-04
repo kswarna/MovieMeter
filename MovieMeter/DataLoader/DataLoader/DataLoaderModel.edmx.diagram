@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ccff0ad59e3b4faa9bb5571e1aeaae5f" Name="Diagram1">
+        <EntityTypeShape EntityType="DataLoaderModel.CriticRating" Width="1.5" PointX="7.5" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataLoaderModel.CriticRatingLoader" Width="1.5" PointX="7.5" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataLoaderModel.CriticSite" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataLoaderModel.Language" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataLoaderModel.Movie" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataLoaderModel.MovieDetail" Width="1.5" PointX="5.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataLoaderModel.MovieDetailLoader" Width="1.5" PointX="5.25" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataLoaderModel.MovieLoader" Width="1.5" PointX="3" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataLoaderModel.UserRating" Width="1.5" PointX="7.5" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataLoaderModel.UserRatingLoader" Width="1.5" PointX="7.5" PointY="14.25" IsExpanded="true" />
+        <AssociationConnector Association="DataLoaderModel.FK__CriticRat__Criti__59063A47" ManuallyRouted="false" />
+        <AssociationConnector Association="DataLoaderModel.FK__CriticRat__Movie__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="DataLoaderModel.FK__CriticRat__Criti__656C112C" ManuallyRouted="false" />
+        <AssociationConnector Association="DataLoaderModel.FK__CriticRat__Movie__6477ECF3" ManuallyRouted="false" />
+        <AssociationConnector Association="DataLoaderModel.FK__Movie__LanguageI__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="DataLoaderModel.FK__MovieLoad__Langu__5EBF139D" ManuallyRouted="false" />
+        <AssociationConnector Association="DataLoaderModel.FK__MovieDeta__Movie__5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="DataLoaderModel.FK__UserRatin__Movie__5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="DataLoaderModel.FK__MovieDeta__Movie__619B8048" ManuallyRouted="false" />
+        <AssociationConnector Association="DataLoaderModel.FK__UserRatin__Movie__68487DD7" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

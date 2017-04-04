@@ -1,0 +1,9 @@
+﻿.navbar,
+.navbar .container,
+.body-content {
+    background-color:  #ffffff !important;
+        max-width: 2200px ;
+}
+.navbar-toggle {
+    background-color: #200030!important
+}

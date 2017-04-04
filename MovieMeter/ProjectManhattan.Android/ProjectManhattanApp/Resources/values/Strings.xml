@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Hello">Hello World, Click Me!</string>
+  <string name="ComingSoon">Coming Soon</string>
+  <string name="NowPlaying">Now Playing</string>
+  <string name="ApplicationName">ProjectManhattanApp</string>
+  <string name="MovieId">MovieId</string>
+  <string name="Detail">Detail</string>
+  <string name="Ratings">Ratings</string>
+  <string name="Social">Social</string>
+  <string name="Gallery">Gallery</string>
+  <string name="UserFeedback">UserFeedback</string>
+  <color name="TextBoxBlue">#056095</color>
+  <color name="White">#FFFFFF</color>
+</resources>

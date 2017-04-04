@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1b2f743eb0bc449b96bac38b4f214811" Name="Diagram1">
+        <EntityTypeShape EntityType="ProjectManhattanModel.CriticRating" Width="1.5" PointX="1" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectManhattanModel.CriticSite" Width="1.5" PointX="0.5" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectManhattanModel.Language" Width="1.5" PointX="2.5" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectManhattanModel.Movie" Width="1.5" PointX="3.25" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectManhattanModel.MovieDetail" Width="1.5" PointX="3.375" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectManhattanModel.UserRating" Width="1.5" PointX="5.875" PointY="8.5" IsExpanded="true" />
+        <AssociationConnector Association="ProjectManhattanModel.FK__CriticRat__Criti__1FCDBCEB" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectManhattanModel.FK__CriticRat__Movie__1ED998B2" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectManhattanModel.FK__Movie__LanguageI__1CF15040" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectManhattanModel.FK__MovieDeta__Movie__24927208" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectManhattanModel.FK__UserRatin__Movie__1DE57479" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

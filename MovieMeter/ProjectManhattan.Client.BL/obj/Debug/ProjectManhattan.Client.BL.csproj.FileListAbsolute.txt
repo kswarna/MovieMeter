@@ -1,0 +1,15 @@
+C:\TFS-KS\MovieMeter\ProjectManhattan.Client.BL\bin\Debug\ProjectManhattan.Client.BL.dll
+C:\TFS-KS\MovieMeter\ProjectManhattan.Client.BL\bin\Debug\ProjectManhattan.Client.BL.pdb
+C:\TFS-KS\MovieMeter\ProjectManhattan.Client.BL\bin\Debug\Projectmanhattan.Client.DL.dll
+C:\TFS-KS\MovieMeter\ProjectManhattan.Client.BL\bin\Debug\ProjectManhattan.DTO.dll
+C:\TFS-KS\MovieMeter\ProjectManhattan.Client.BL\bin\Debug\Newtonsoft.Json.dll
+C:\TFS-KS\MovieMeter\ProjectManhattan.Client.BL\bin\Debug\Projectmanhattan.Client.DL.pdb
+C:\TFS-KS\MovieMeter\ProjectManhattan.Client.BL\bin\Debug\ProjectManhattan.DTO.pdb
+C:\TFS-KS\MovieMeter\ProjectManhattan.Client.BL\bin\Debug\Newtonsoft.Json.xml
+C:\TFS-KS\MovieMeter\ProjectManhattan.Client.BL\obj\Debug\ProjectManhattan.Client.BL.csprojResolveAssemblyReference.cache
+C:\TFS-KS\MovieMeter\ProjectManhattan.Client.BL\obj\Debug\ProjectManhattan.Client.BL.dll
+C:\TFS-KS\MovieMeter\ProjectManhattan.Client.BL\obj\Debug\ProjectManhattan.Client.BL.pdb
+C:\TFS-KS\MovieMeter\ProjectManhattan.Client.BL\obj\Debug\ProjectManhattan.Client.BL.dll.mdb
+C:\TFS-KS\MovieMeter\ProjectManhattan.Client.BL\bin\Debug\ProjectManhattan.Client.BL.dll.mdb
+C:\TFS-KS\MovieMeter\ProjectManhattan.Client.BL\obj\Debug\ProjectManhattan.Client.BL.dll.mdb
+C:\TFS-KS\MovieMeter\ProjectManhattan.Client.BL\bin\Debug\ProjectManhattan.Client.BL.dll.mdb

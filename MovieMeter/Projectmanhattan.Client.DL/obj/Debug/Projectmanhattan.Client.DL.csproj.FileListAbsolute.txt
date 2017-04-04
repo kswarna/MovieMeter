@@ -1,0 +1,15 @@
+C:\TFS-KS\MovieMeter\Projectmanhattan.Client.DL\bin\Debug\Projectmanhattan.Client.DL.dll
+C:\TFS-KS\MovieMeter\Projectmanhattan.Client.DL\bin\Debug\Projectmanhattan.Client.DL.pdb
+C:\TFS-KS\MovieMeter\Projectmanhattan.Client.DL\bin\Debug\Newtonsoft.Json.dll
+C:\TFS-KS\MovieMeter\Projectmanhattan.Client.DL\bin\Debug\ProjectManhattan.DTO.dll
+C:\TFS-KS\MovieMeter\Projectmanhattan.Client.DL\bin\Debug\ProjectManhattan.DTO.pdb
+C:\TFS-KS\MovieMeter\Projectmanhattan.Client.DL\bin\Debug\Newtonsoft.Json.xml
+C:\TFS-KS\MovieMeter\Projectmanhattan.Client.DL\obj\Debug\Projectmanhattan.Client.DL.csprojResolveAssemblyReference.cache
+C:\TFS-KS\MovieMeter\Projectmanhattan.Client.DL\obj\Debug\Projectmanhattan.Client.DL.UrlResourceFile.resources
+C:\TFS-KS\MovieMeter\Projectmanhattan.Client.DL\obj\Debug\Projectmanhattan.Client.DL.csproj.GenerateResource.Cache
+C:\TFS-KS\MovieMeter\Projectmanhattan.Client.DL\obj\Debug\Projectmanhattan.Client.DL.dll
+C:\TFS-KS\MovieMeter\Projectmanhattan.Client.DL\obj\Debug\Projectmanhattan.Client.DL.pdb
+C:\TFS-KS\MovieMeter\Projectmanhattan.Client.DL\obj\Debug\Projectmanhattan.Client.DL.dll.mdb
+C:\TFS-KS\MovieMeter\Projectmanhattan.Client.DL\bin\Debug\Projectmanhattan.Client.DL.dll.mdb
+C:\TFS-KS\MovieMeter\Projectmanhattan.Client.DL\obj\Debug\Projectmanhattan.Client.DL.dll.mdb
+C:\TFS-KS\MovieMeter\Projectmanhattan.Client.DL\bin\Debug\Projectmanhattan.Client.DL.dll.mdb

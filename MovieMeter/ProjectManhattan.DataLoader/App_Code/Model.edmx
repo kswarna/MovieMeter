@@ -1,0 +1,1421 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ProjectManhattanModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Artists">
+          <Key>
+            <PropertyRef Name="ArtistId" />
+          </Key>
+          <Property Name="ArtistId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ArtistName" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="ArtistDOB" Type="datetime" />
+          <Property Name="ArtistTitle" Type="nvarchar" MaxLength="255" />
+          <Property Name="ArtistNickName" Type="nvarchar" MaxLength="255" />
+          <Property Name="ArtistTypeId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ArtistTypes">
+          <Key>
+            <PropertyRef Name="ArtistTypeId" />
+          </Key>
+          <Property Name="ArtistTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ArtistTypeName" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CriticMovieRatings">
+          <Key>
+            <PropertyRef Name="CriticMovieRatingId" />
+          </Key>
+          <Property Name="CriticMovieRatingId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CriticId" Type="int" Nullable="false" />
+          <Property Name="MovieId" Type="int" Nullable="false" />
+          <Property Name="Rating" Type="decimal" Precision="5" Scale="3" />
+          <Property Name="ReviewDescription" Type="nvarchar(max)" />
+          <Property Name="RatingDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Critics">
+          <Key>
+            <PropertyRef Name="CriticId" />
+          </Key>
+          <Property Name="CriticId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SiteName" Type="nvarchar" MaxLength="255" />
+          <Property Name="WebUrl" Type="nvarchar" MaxLength="255" />
+          <Property Name="AlexaRating" Type="int" />
+        </EntityType>
+        <EntityType Name="Distributors">
+          <Key>
+            <PropertyRef Name="DistributorId" />
+          </Key>
+          <Property Name="DistributorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Address1" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Address2" Type="nvarchar" MaxLength="256" />
+          <Property Name="City" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="State" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="Country" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="ZipCode" Type="nvarchar" MaxLength="16" />
+          <Property Name="Name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ContactPersonName" Type="nvarchar" MaxLength="128" />
+          <Property Name="ContactNumber" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="Finances">
+          <Key>
+            <PropertyRef Name="FinanceId" />
+          </Key>
+          <Property Name="FinanceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MovieId" Type="int" Nullable="false" />
+          <Property Name="MovieProductionCost" Type="float" />
+          <Property Name="MovieProductionDuration" Type="int" />
+        </EntityType>
+        <EntityType Name="Languages">
+          <Key>
+            <PropertyRef Name="LanguageId" />
+          </Key>
+          <Property Name="LanguageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LanguageName" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="MovieArtists">
+          <Key>
+            <PropertyRef Name="MovieArtistId" />
+          </Key>
+          <Property Name="MovieArtistId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MovieId" Type="int" Nullable="false" />
+          <Property Name="ArtistId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MovieDistributors">
+          <Key>
+            <PropertyRef Name="MovieDistributorId" />
+          </Key>
+          <Property Name="MovieDistributorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MovieId" Type="int" Nullable="false" />
+          <Property Name="DistributorId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MoviePhotoArtists">
+          <Key>
+            <PropertyRef Name="MoviePhotoArtistId" />
+          </Key>
+          <Property Name="MoviePhotoArtistId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MoviePhotoId" Type="int" Nullable="false" />
+          <Property Name="ArtistId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MoviePhotoes">
+          <Key>
+            <PropertyRef Name="MoviePhotoId" />
+          </Key>
+          <Property Name="MoviePhotoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MovieId" Type="int" Nullable="false" />
+          <Property Name="MoviePhotoURL" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Movies">
+          <Key>
+            <PropertyRef Name="MovieId" />
+          </Key>
+          <Property Name="MovieId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="ReleaseDate" Type="datetime" Nullable="false" />
+          <Property Name="LanguageId" Type="int" Nullable="false" />
+          <Property Name="SmallPicture" Type="varbinary(max)" />
+          <Property Name="LargePicture" Type="varbinary(max)" />
+          <Property Name="HasReleased" Type="bit" />
+        </EntityType>
+        <EntityType Name="MovieSongArtists">
+          <Key>
+            <PropertyRef Name="MovieSongArtistId" />
+          </Key>
+          <Property Name="MovieSongArtistId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MovieSongId" Type="int" Nullable="false" />
+          <Property Name="ArtistId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MovieSongs">
+          <Key>
+            <PropertyRef Name="MovieSongId" />
+          </Key>
+          <Property Name="MovieSongId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MovieId" Type="int" Nullable="false" />
+          <Property Name="SongName" Type="nvarchar" MaxLength="128" />
+          <Property Name="SongLyrics" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="MovieTrailers">
+          <Key>
+            <PropertyRef Name="MovieTrailerId" />
+          </Key>
+          <Property Name="MovieTrailerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MovieId" Type="int" Nullable="false" />
+          <Property Name="TrailerPath" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="TrailerType" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Schedules">
+          <Key>
+            <PropertyRef Name="ScheduleId" />
+          </Key>
+          <Property Name="ScheduleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MovieId" Type="int" Nullable="false" />
+          <Property Name="TheatreId" Type="int" Nullable="false" />
+          <Property Name="ScheduleTime" Type="datetime" Nullable="false" />
+          <Property Name="ScheduleScreenName" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="Theatres">
+          <Key>
+            <PropertyRef Name="TheatreId" />
+          </Key>
+          <Property Name="TheatreId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TheatreName" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="TheatreLatitude" Type="float" />
+          <Property Name="TheatreLongitude" Type="float" />
+          <Property Name="NumberOfScreens" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ProjectManhattan.dbo.UserMovieRatings' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="UserMovieRatings">
+          <Key>
+            <PropertyRef Name="UserMovieRatingId" />
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="MovieId" />
+            <PropertyRef Name="RatingDate" />
+          </Key>
+          <Property Name="UserMovieRatingId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="MovieId" Type="int" Nullable="false" />
+          <Property Name="Rating" Type="decimal" Precision="5" Scale="3" />
+          <Property Name="ReviewDescription" Type="nvarchar(max)" />
+          <Property Name="RatingDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserPreferences">
+          <Key>
+            <PropertyRef Name="UserPreferenceId" />
+          </Key>
+          <Property Name="UserPreferenceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="LanguageId" Type="int" Nullable="false" />
+          <Property Name="Address1" Type="nvarchar" MaxLength="100" />
+          <Property Name="Address2" Type="nvarchar" MaxLength="100" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="ZipCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="State" Type="nvarchar" MaxLength="50" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="32" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="255" />
+          <Property Name="BlogURL" Type="nvarchar" MaxLength="255" />
+          <Property Name="FacebookId" Type="nvarchar" MaxLength="255" />
+          <Property Name="TwitterId" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <Association Name="FK__CriticMov__Criti__37A5467C">
+          <End Role="Critics" Type="Self.Critics" Multiplicity="1" />
+          <End Role="CriticMovieRatings" Type="Self.CriticMovieRatings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Critics">
+              <PropertyRef Name="CriticId" />
+            </Principal>
+            <Dependent Role="CriticMovieRatings">
+              <PropertyRef Name="CriticId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CriticMov__Movie__38996AB5">
+          <End Role="Movies" Type="Self.Movies" Multiplicity="1" />
+          <End Role="CriticMovieRatings" Type="Self.CriticMovieRatings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movies">
+              <PropertyRef Name="MovieId" />
+            </Principal>
+            <Dependent Role="CriticMovieRatings">
+              <PropertyRef Name="MovieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Finance__MovieId__4316F928">
+          <End Role="Movies" Type="Self.Movies" Multiplicity="1" />
+          <End Role="Finances" Type="Self.Finances" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movies">
+              <PropertyRef Name="MovieId" />
+            </Principal>
+            <Dependent Role="Finances">
+              <PropertyRef Name="MovieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Movie__LanguageI__1A14E395">
+          <End Role="Languages" Type="Self.Languages" Multiplicity="1" />
+          <End Role="Movies" Type="Self.Movies" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Languages">
+              <PropertyRef Name="LanguageId" />
+            </Principal>
+            <Dependent Role="Movies">
+              <PropertyRef Name="LanguageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MovieArti__Artis__1DE57479">
+          <End Role="Artists" Type="Self.Artists" Multiplicity="1" />
+          <End Role="MovieArtists" Type="Self.MovieArtists" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artists">
+              <PropertyRef Name="ArtistId" />
+            </Principal>
+            <Dependent Role="MovieArtists">
+              <PropertyRef Name="ArtistId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MovieArti__Movie__1CF15040">
+          <End Role="Movies" Type="Self.Movies" Multiplicity="1" />
+          <End Role="MovieArtists" Type="Self.MovieArtists" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movies">
+              <PropertyRef Name="MovieId" />
+            </Principal>
+            <Dependent Role="MovieArtists">
+              <PropertyRef Name="MovieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MovieDist__Distr__5FB337D6">
+          <End Role="Distributors" Type="Self.Distributors" Multiplicity="1" />
+          <End Role="MovieDistributors" Type="Self.MovieDistributors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Distributors">
+              <PropertyRef Name="DistributorId" />
+            </Principal>
+            <Dependent Role="MovieDistributors">
+              <PropertyRef Name="DistributorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MovieDist__Movie__5EBF139D">
+          <End Role="Movies" Type="Self.Movies" Multiplicity="1" />
+          <End Role="MovieDistributors" Type="Self.MovieDistributors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movies">
+              <PropertyRef Name="MovieId" />
+            </Principal>
+            <Dependent Role="MovieDistributors">
+              <PropertyRef Name="MovieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MoviePhot__Artis__6A30C649">
+          <End Role="Artists" Type="Self.Artists" Multiplicity="1" />
+          <End Role="MoviePhotoArtists" Type="Self.MoviePhotoArtists" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artists">
+              <PropertyRef Name="ArtistId" />
+            </Principal>
+            <Dependent Role="MoviePhotoArtists">
+              <PropertyRef Name="ArtistId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MoviePhot__Movie__66603565">
+          <End Role="Movies" Type="Self.Movies" Multiplicity="1" />
+          <End Role="MoviePhotoes" Type="Self.MoviePhotoes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movies">
+              <PropertyRef Name="MovieId" />
+            </Principal>
+            <Dependent Role="MoviePhotoes">
+              <PropertyRef Name="MovieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MoviePhot__Movie__693CA210">
+          <End Role="MoviePhotoes" Type="Self.MoviePhotoes" Multiplicity="1" />
+          <End Role="MoviePhotoArtists" Type="Self.MoviePhotoArtists" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MoviePhotoes">
+              <PropertyRef Name="MoviePhotoId" />
+            </Principal>
+            <Dependent Role="MoviePhotoArtists">
+              <PropertyRef Name="MoviePhotoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MovieSong__Artis__2D27B809">
+          <End Role="Artists" Type="Self.Artists" Multiplicity="1" />
+          <End Role="MovieSongArtists" Type="Self.MovieSongArtists" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artists">
+              <PropertyRef Name="ArtistId" />
+            </Principal>
+            <Dependent Role="MovieSongArtists">
+              <PropertyRef Name="ArtistId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MovieSong__Movie__286302EC">
+          <End Role="Movies" Type="Self.Movies" Multiplicity="1" />
+          <End Role="MovieSongs" Type="Self.MovieSongs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movies">
+              <PropertyRef Name="MovieId" />
+            </Principal>
+            <Dependent Role="MovieSongs">
+              <PropertyRef Name="MovieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MovieSong__Movie__2C3393D0">
+          <End Role="MovieSongs" Type="Self.MovieSongs" Multiplicity="1" />
+          <End Role="MovieSongArtists" Type="Self.MovieSongArtists" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MovieSongs">
+              <PropertyRef Name="MovieSongId" />
+            </Principal>
+            <Dependent Role="MovieSongArtists">
+              <PropertyRef Name="MovieSongId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MovieTrai__Movie__4F7CD00D">
+          <End Role="Movies" Type="Self.Movies" Multiplicity="1" />
+          <End Role="MovieTrailers" Type="Self.MovieTrailers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movies">
+              <PropertyRef Name="MovieId" />
+            </Principal>
+            <Dependent Role="MovieTrailers">
+              <PropertyRef Name="MovieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Schedule__MovieI__3F466844">
+          <End Role="Movies" Type="Self.Movies" Multiplicity="1" />
+          <End Role="Schedules" Type="Self.Schedules" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movies">
+              <PropertyRef Name="MovieId" />
+            </Principal>
+            <Dependent Role="Schedules">
+              <PropertyRef Name="MovieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Schedule__Theatr__403A8C7D">
+          <End Role="Theatres" Type="Self.Theatres" Multiplicity="1" />
+          <End Role="Schedules" Type="Self.Schedules" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Theatres">
+              <PropertyRef Name="TheatreId" />
+            </Principal>
+            <Dependent Role="Schedules">
+              <PropertyRef Name="TheatreId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserPrefe__Langu__6383C8BA">
+          <End Role="Languages" Type="Self.Languages" Multiplicity="1" />
+          <End Role="UserPreferences" Type="Self.UserPreferences" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Languages">
+              <PropertyRef Name="LanguageId" />
+            </Principal>
+            <Dependent Role="UserPreferences">
+              <PropertyRef Name="LanguageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserPrefe__UserI__628FA481">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="UserPreferences" Type="Self.UserPreferences" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserPreferences">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Artists_ToTable">
+          <End Role="ArtistTypes" Type="Self.ArtistTypes" Multiplicity="1" />
+          <End Role="Artists" Type="Self.Artists" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ArtistTypes">
+              <PropertyRef Name="ArtistTypeId" />
+            </Principal>
+            <Dependent Role="Artists">
+              <PropertyRef Name="ArtistTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserMovieRatings_ToTable">
+          <End Role="Movies" Type="Self.Movies" Multiplicity="1" />
+          <End Role="UserMovieRatings" Type="Self.UserMovieRatings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movies">
+              <PropertyRef Name="MovieId" />
+            </Principal>
+            <Dependent Role="UserMovieRatings">
+              <PropertyRef Name="MovieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ProjectManhattanModelStoreContainer">
+          <EntitySet Name="Artists" EntityType="Self.Artists" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ArtistTypes" EntityType="Self.ArtistTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CriticMovieRatings" EntityType="Self.CriticMovieRatings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Critics" EntityType="Self.Critics" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Distributors" EntityType="Self.Distributors" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Finances" EntityType="Self.Finances" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Languages" EntityType="Self.Languages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MovieArtists" EntityType="Self.MovieArtists" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MovieDistributors" EntityType="Self.MovieDistributors" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MoviePhotoArtists" EntityType="Self.MoviePhotoArtists" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MoviePhotoes" EntityType="Self.MoviePhotoes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Movies" EntityType="Self.Movies" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MovieSongArtists" EntityType="Self.MovieSongArtists" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MovieSongs" EntityType="Self.MovieSongs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MovieTrailers" EntityType="Self.MovieTrailers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Schedules" EntityType="Self.Schedules" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Theatres" EntityType="Self.Theatres" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserPreferences" EntityType="Self.UserPreferences" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserMovieRatings" EntityType="Self.UserMovieRatings" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [UserMovieRatings].[UserMovieRatingId] AS [UserMovieRatingId], 
+    [UserMovieRatings].[UserId] AS [UserId], 
+    [UserMovieRatings].[MovieId] AS [MovieId], 
+    [UserMovieRatings].[Rating] AS [Rating], 
+    [UserMovieRatings].[ReviewDescription] AS [ReviewDescription], 
+    [UserMovieRatings].[RatingDate] AS [RatingDate]
+    FROM [dbo].[UserMovieRatings] AS [UserMovieRatings]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__CriticMov__Criti__37A5467C" Association="Self.FK__CriticMov__Criti__37A5467C">
+            <End Role="Critics" EntitySet="Critics" />
+            <End Role="CriticMovieRatings" EntitySet="CriticMovieRatings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CriticMov__Movie__38996AB5" Association="Self.FK__CriticMov__Movie__38996AB5">
+            <End Role="Movies" EntitySet="Movies" />
+            <End Role="CriticMovieRatings" EntitySet="CriticMovieRatings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Finance__MovieId__4316F928" Association="Self.FK__Finance__MovieId__4316F928">
+            <End Role="Movies" EntitySet="Movies" />
+            <End Role="Finances" EntitySet="Finances" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Movie__LanguageI__1A14E395" Association="Self.FK__Movie__LanguageI__1A14E395">
+            <End Role="Languages" EntitySet="Languages" />
+            <End Role="Movies" EntitySet="Movies" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MovieArti__Artis__1DE57479" Association="Self.FK__MovieArti__Artis__1DE57479">
+            <End Role="Artists" EntitySet="Artists" />
+            <End Role="MovieArtists" EntitySet="MovieArtists" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MovieArti__Movie__1CF15040" Association="Self.FK__MovieArti__Movie__1CF15040">
+            <End Role="Movies" EntitySet="Movies" />
+            <End Role="MovieArtists" EntitySet="MovieArtists" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MovieDist__Distr__5FB337D6" Association="Self.FK__MovieDist__Distr__5FB337D6">
+            <End Role="Distributors" EntitySet="Distributors" />
+            <End Role="MovieDistributors" EntitySet="MovieDistributors" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MovieDist__Movie__5EBF139D" Association="Self.FK__MovieDist__Movie__5EBF139D">
+            <End Role="Movies" EntitySet="Movies" />
+            <End Role="MovieDistributors" EntitySet="MovieDistributors" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MoviePhot__Artis__6A30C649" Association="Self.FK__MoviePhot__Artis__6A30C649">
+            <End Role="Artists" EntitySet="Artists" />
+            <End Role="MoviePhotoArtists" EntitySet="MoviePhotoArtists" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MoviePhot__Movie__66603565" Association="Self.FK__MoviePhot__Movie__66603565">
+            <End Role="Movies" EntitySet="Movies" />
+            <End Role="MoviePhotoes" EntitySet="MoviePhotoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MoviePhot__Movie__693CA210" Association="Self.FK__MoviePhot__Movie__693CA210">
+            <End Role="MoviePhotoes" EntitySet="MoviePhotoes" />
+            <End Role="MoviePhotoArtists" EntitySet="MoviePhotoArtists" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MovieSong__Artis__2D27B809" Association="Self.FK__MovieSong__Artis__2D27B809">
+            <End Role="Artists" EntitySet="Artists" />
+            <End Role="MovieSongArtists" EntitySet="MovieSongArtists" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MovieSong__Movie__286302EC" Association="Self.FK__MovieSong__Movie__286302EC">
+            <End Role="Movies" EntitySet="Movies" />
+            <End Role="MovieSongs" EntitySet="MovieSongs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MovieSong__Movie__2C3393D0" Association="Self.FK__MovieSong__Movie__2C3393D0">
+            <End Role="MovieSongs" EntitySet="MovieSongs" />
+            <End Role="MovieSongArtists" EntitySet="MovieSongArtists" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MovieTrai__Movie__4F7CD00D" Association="Self.FK__MovieTrai__Movie__4F7CD00D">
+            <End Role="Movies" EntitySet="Movies" />
+            <End Role="MovieTrailers" EntitySet="MovieTrailers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Schedule__MovieI__3F466844" Association="Self.FK__Schedule__MovieI__3F466844">
+            <End Role="Movies" EntitySet="Movies" />
+            <End Role="Schedules" EntitySet="Schedules" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Schedule__Theatr__403A8C7D" Association="Self.FK__Schedule__Theatr__403A8C7D">
+            <End Role="Theatres" EntitySet="Theatres" />
+            <End Role="Schedules" EntitySet="Schedules" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserPrefe__Langu__6383C8BA" Association="Self.FK__UserPrefe__Langu__6383C8BA">
+            <End Role="Languages" EntitySet="Languages" />
+            <End Role="UserPreferences" EntitySet="UserPreferences" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserPrefe__UserI__628FA481" Association="Self.FK__UserPrefe__UserI__628FA481">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserPreferences" EntitySet="UserPreferences" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Artists_ToTable" Association="Self.FK_Artists_ToTable">
+            <End Role="ArtistTypes" EntitySet="ArtistTypes" />
+            <End Role="Artists" EntitySet="Artists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserMovieRatings_ToTable" Association="Self.FK_UserMovieRatings_ToTable">
+            <End Role="Movies" EntitySet="Movies" />
+            <End Role="UserMovieRatings" EntitySet="UserMovieRatings" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ProjectManhattanModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ProjectManhattanEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CriticMovieRatings" EntityType="ProjectManhattanModel.CriticMovieRating" />
+          <EntitySet Name="Critics" EntityType="ProjectManhattanModel.Critic" />
+          <EntitySet Name="Distributors" EntityType="ProjectManhattanModel.Distributor" />
+          <EntitySet Name="Finances" EntityType="ProjectManhattanModel.Finance" />
+          <EntitySet Name="Languages" EntityType="ProjectManhattanModel.Language" />
+          <EntitySet Name="MovieArtists" EntityType="ProjectManhattanModel.MovieArtist" />
+          <EntitySet Name="MovieDistributors" EntityType="ProjectManhattanModel.MovieDistributor" />
+          <EntitySet Name="MoviePhotoArtists" EntityType="ProjectManhattanModel.MoviePhotoArtist" />
+          <EntitySet Name="MoviePhotoes" EntityType="ProjectManhattanModel.MoviePhoto" />
+          <EntitySet Name="Movies" EntityType="ProjectManhattanModel.Movie" />
+          <EntitySet Name="MovieSongArtists" EntityType="ProjectManhattanModel.MovieSongArtist" />
+          <EntitySet Name="MovieSongs" EntityType="ProjectManhattanModel.MovieSong" />
+          <EntitySet Name="MovieTrailers" EntityType="ProjectManhattanModel.MovieTrailer" />
+          <EntitySet Name="Schedules" EntityType="ProjectManhattanModel.Schedule" />
+          <EntitySet Name="Theatres" EntityType="ProjectManhattanModel.Theatre" />
+          <EntitySet Name="UserPreferences" EntityType="ProjectManhattanModel.UserPreference" />
+          <EntitySet Name="Users" EntityType="ProjectManhattanModel.User" />
+          <EntitySet Name="UserMovieRatings" EntityType="ProjectManhattanModel.UserMovieRating" />
+          <AssociationSet Name="FK__CriticMov__Criti__37A5467C" Association="ProjectManhattanModel.FK__CriticMov__Criti__37A5467C">
+            <End Role="Critic" EntitySet="Critics" />
+            <End Role="CriticMovieRating" EntitySet="CriticMovieRatings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CriticMov__Movie__38996AB5" Association="ProjectManhattanModel.FK__CriticMov__Movie__38996AB5">
+            <End Role="Movy" EntitySet="Movies" />
+            <End Role="CriticMovieRating" EntitySet="CriticMovieRatings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MovieDist__Distr__5FB337D6" Association="ProjectManhattanModel.FK__MovieDist__Distr__5FB337D6">
+            <End Role="Distributor" EntitySet="Distributors" />
+            <End Role="MovieDistributor" EntitySet="MovieDistributors" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Finance__MovieId__4316F928" Association="ProjectManhattanModel.FK__Finance__MovieId__4316F928">
+            <End Role="Movy" EntitySet="Movies" />
+            <End Role="Finance" EntitySet="Finances" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Movie__LanguageI__1A14E395" Association="ProjectManhattanModel.FK__Movie__LanguageI__1A14E395">
+            <End Role="Language" EntitySet="Languages" />
+            <End Role="Movy" EntitySet="Movies" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserPrefe__Langu__6383C8BA" Association="ProjectManhattanModel.FK__UserPrefe__Langu__6383C8BA">
+            <End Role="Language" EntitySet="Languages" />
+            <End Role="UserPreference" EntitySet="UserPreferences" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MovieArti__Movie__1CF15040" Association="ProjectManhattanModel.FK__MovieArti__Movie__1CF15040">
+            <End Role="Movy" EntitySet="Movies" />
+            <End Role="MovieArtist" EntitySet="MovieArtists" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MovieDist__Movie__5EBF139D" Association="ProjectManhattanModel.FK__MovieDist__Movie__5EBF139D">
+            <End Role="Movy" EntitySet="Movies" />
+            <End Role="MovieDistributor" EntitySet="MovieDistributors" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MoviePhot__Movie__693CA210" Association="ProjectManhattanModel.FK__MoviePhot__Movie__693CA210">
+            <End Role="MoviePhoto" EntitySet="MoviePhotoes" />
+            <End Role="MoviePhotoArtist" EntitySet="MoviePhotoArtists" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MoviePhot__Movie__66603565" Association="ProjectManhattanModel.FK__MoviePhot__Movie__66603565">
+            <End Role="Movy" EntitySet="Movies" />
+            <End Role="MoviePhoto" EntitySet="MoviePhotoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MovieSong__Movie__286302EC" Association="ProjectManhattanModel.FK__MovieSong__Movie__286302EC">
+            <End Role="Movy" EntitySet="Movies" />
+            <End Role="MovieSong" EntitySet="MovieSongs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MovieTrai__Movie__4F7CD00D" Association="ProjectManhattanModel.FK__MovieTrai__Movie__4F7CD00D">
+            <End Role="Movy" EntitySet="Movies" />
+            <End Role="MovieTrailer" EntitySet="MovieTrailers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Schedule__MovieI__3F466844" Association="ProjectManhattanModel.FK__Schedule__MovieI__3F466844">
+            <End Role="Movy" EntitySet="Movies" />
+            <End Role="Schedule" EntitySet="Schedules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserMovieRatings_ToTable" Association="ProjectManhattanModel.FK_UserMovieRatings_ToTable">
+            <End Role="Movy" EntitySet="Movies" />
+            <End Role="UserMovieRating" EntitySet="UserMovieRatings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MovieSong__Movie__2C3393D0" Association="ProjectManhattanModel.FK__MovieSong__Movie__2C3393D0">
+            <End Role="MovieSong" EntitySet="MovieSongs" />
+            <End Role="MovieSongArtist" EntitySet="MovieSongArtists" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Schedule__Theatr__403A8C7D" Association="ProjectManhattanModel.FK__Schedule__Theatr__403A8C7D">
+            <End Role="Theatre" EntitySet="Theatres" />
+            <End Role="Schedule" EntitySet="Schedules" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserPrefe__UserI__628FA481" Association="ProjectManhattanModel.FK__UserPrefe__UserI__628FA481">
+            <End Role="User" EntitySet="Users" />
+            <End Role="UserPreference" EntitySet="UserPreferences" />
+          </AssociationSet>
+          <EntitySet Name="ArtistTypes" EntityType="ProjectManhattanModel.ArtistType" />
+          <EntitySet Name="Artists" EntityType="ProjectManhattanModel.Artist" />
+          <AssociationSet Name="FK__MovieArti__Artis__1DE57479" Association="ProjectManhattanModel.FK__MovieArti__Artis__1DE57479">
+            <End Role="Artist" EntitySet="Artists" />
+            <End Role="MovieArtist" EntitySet="MovieArtists" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MoviePhot__Artis__6A30C649" Association="ProjectManhattanModel.FK__MoviePhot__Artis__6A30C649">
+            <End Role="Artist" EntitySet="Artists" />
+            <End Role="MoviePhotoArtist" EntitySet="MoviePhotoArtists" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MovieSong__Artis__2D27B809" Association="ProjectManhattanModel.FK__MovieSong__Artis__2D27B809">
+            <End Role="Artist" EntitySet="Artists" />
+            <End Role="MovieSongArtist" EntitySet="MovieSongArtists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Artists_ToTable" Association="ProjectManhattanModel.FK_Artists_ToTable">
+            <End Role="ArtistType" EntitySet="ArtistTypes" />
+            <End Role="Artist" EntitySet="Artists" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="CriticMovieRating">
+          <Key>
+            <PropertyRef Name="CriticMovieRatingId" />
+          </Key>
+          <Property Name="CriticMovieRatingId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CriticId" Type="Int32" Nullable="false" />
+          <Property Name="MovieId" Type="Int32" Nullable="false" />
+          <Property Name="Rating" Type="Decimal" Precision="5" Scale="3" />
+          <Property Name="ReviewDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RatingDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Critic" Relationship="ProjectManhattanModel.FK__CriticMov__Criti__37A5467C" FromRole="CriticMovieRating" ToRole="Critic" />
+          <NavigationProperty Name="Movy" Relationship="ProjectManhattanModel.FK__CriticMov__Movie__38996AB5" FromRole="CriticMovieRating" ToRole="Movy" />
+        </EntityType>
+        <EntityType Name="Critic">
+          <Key>
+            <PropertyRef Name="CriticId" />
+          </Key>
+          <Property Name="CriticId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SiteName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="WebUrl" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="AlexaRating" Type="Int32" />
+          <NavigationProperty Name="CriticMovieRatings" Relationship="ProjectManhattanModel.FK__CriticMov__Criti__37A5467C" FromRole="Critic" ToRole="CriticMovieRating" />
+        </EntityType>
+        <EntityType Name="Distributor">
+          <Key>
+            <PropertyRef Name="DistributorId" />
+          </Key>
+          <Property Name="DistributorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Address1" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Address2" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="ZipCode" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ContactPersonName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ContactNumber" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="MovieDistributors" Relationship="ProjectManhattanModel.FK__MovieDist__Distr__5FB337D6" FromRole="Distributor" ToRole="MovieDistributor" />
+        </EntityType>
+        <EntityType Name="Finance">
+          <Key>
+            <PropertyRef Name="FinanceId" />
+          </Key>
+          <Property Name="FinanceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MovieId" Type="Int32" Nullable="false" />
+          <Property Name="MovieProductionCost" Type="Double" />
+          <Property Name="MovieProductionDuration" Type="Int32" />
+          <NavigationProperty Name="Movy" Relationship="ProjectManhattanModel.FK__Finance__MovieId__4316F928" FromRole="Finance" ToRole="Movy" />
+        </EntityType>
+        <EntityType Name="Language">
+          <Key>
+            <PropertyRef Name="LanguageId" />
+          </Key>
+          <Property Name="LanguageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LanguageName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Movies" Relationship="ProjectManhattanModel.FK__Movie__LanguageI__1A14E395" FromRole="Language" ToRole="Movy" />
+          <NavigationProperty Name="UserPreferences" Relationship="ProjectManhattanModel.FK__UserPrefe__Langu__6383C8BA" FromRole="Language" ToRole="UserPreference" />
+        </EntityType>
+        <EntityType Name="MovieArtist">
+          <Key>
+            <PropertyRef Name="MovieArtistId" />
+          </Key>
+          <Property Name="MovieArtistId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MovieId" Type="Int32" Nullable="false" />
+          <Property Name="ArtistId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Movy" Relationship="ProjectManhattanModel.FK__MovieArti__Movie__1CF15040" FromRole="MovieArtist" ToRole="Movy" />
+          <NavigationProperty Name="Artist" Relationship="ProjectManhattanModel.FK__MovieArti__Artis__1DE57479" FromRole="MovieArtist" ToRole="Artist" />
+        </EntityType>
+        <EntityType Name="MovieDistributor">
+          <Key>
+            <PropertyRef Name="MovieDistributorId" />
+          </Key>
+          <Property Name="MovieDistributorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MovieId" Type="Int32" Nullable="false" />
+          <Property Name="DistributorId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Distributor" Relationship="ProjectManhattanModel.FK__MovieDist__Distr__5FB337D6" FromRole="MovieDistributor" ToRole="Distributor" />
+          <NavigationProperty Name="Movy" Relationship="ProjectManhattanModel.FK__MovieDist__Movie__5EBF139D" FromRole="MovieDistributor" ToRole="Movy" />
+        </EntityType>
+        <EntityType Name="MoviePhotoArtist">
+          <Key>
+            <PropertyRef Name="MoviePhotoArtistId" />
+          </Key>
+          <Property Name="MoviePhotoArtistId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MoviePhotoId" Type="Int32" Nullable="false" />
+          <Property Name="ArtistId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MoviePhoto" Relationship="ProjectManhattanModel.FK__MoviePhot__Movie__693CA210" FromRole="MoviePhotoArtist" ToRole="MoviePhoto" />
+          <NavigationProperty Name="Artist" Relationship="ProjectManhattanModel.FK__MoviePhot__Artis__6A30C649" FromRole="MoviePhotoArtist" ToRole="Artist" />
+        </EntityType>
+        <EntityType Name="MoviePhoto">
+          <Key>
+            <PropertyRef Name="MoviePhotoId" />
+          </Key>
+          <Property Name="MoviePhotoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MovieId" Type="Int32" Nullable="false" />
+          <Property Name="MoviePhotoURL" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="MoviePhotoArtists" Relationship="ProjectManhattanModel.FK__MoviePhot__Movie__693CA210" FromRole="MoviePhoto" ToRole="MoviePhotoArtist" />
+          <NavigationProperty Name="Movy" Relationship="ProjectManhattanModel.FK__MoviePhot__Movie__66603565" FromRole="MoviePhoto" ToRole="Movy" />
+        </EntityType>
+        <EntityType Name="Movie">
+          <Key>
+            <PropertyRef Name="MovieId" />
+          </Key>
+          <Property Name="MovieId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ReleaseDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LanguageId" Type="Int32" Nullable="false" />
+          <Property Name="SmallPicture" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="LargePicture" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="CriticMovieRatings" Relationship="ProjectManhattanModel.FK__CriticMov__Movie__38996AB5" FromRole="Movy" ToRole="CriticMovieRating" />
+          <NavigationProperty Name="Finances" Relationship="ProjectManhattanModel.FK__Finance__MovieId__4316F928" FromRole="Movy" ToRole="Finance" />
+          <NavigationProperty Name="Language" Relationship="ProjectManhattanModel.FK__Movie__LanguageI__1A14E395" FromRole="Movy" ToRole="Language" />
+          <NavigationProperty Name="MovieArtists" Relationship="ProjectManhattanModel.FK__MovieArti__Movie__1CF15040" FromRole="Movy" ToRole="MovieArtist" />
+          <NavigationProperty Name="MovieDistributors" Relationship="ProjectManhattanModel.FK__MovieDist__Movie__5EBF139D" FromRole="Movy" ToRole="MovieDistributor" />
+          <NavigationProperty Name="MoviePhotoes" Relationship="ProjectManhattanModel.FK__MoviePhot__Movie__66603565" FromRole="Movy" ToRole="MoviePhoto" />
+          <NavigationProperty Name="MovieSongs" Relationship="ProjectManhattanModel.FK__MovieSong__Movie__286302EC" FromRole="Movy" ToRole="MovieSong" />
+          <NavigationProperty Name="MovieTrailers" Relationship="ProjectManhattanModel.FK__MovieTrai__Movie__4F7CD00D" FromRole="Movy" ToRole="MovieTrailer" />
+          <NavigationProperty Name="Schedules" Relationship="ProjectManhattanModel.FK__Schedule__MovieI__3F466844" FromRole="Movy" ToRole="Schedule" />
+          <NavigationProperty Name="UserMovieRatings" Relationship="ProjectManhattanModel.FK_UserMovieRatings_ToTable" FromRole="Movy" ToRole="UserMovieRating" />
+          <Property Name="HasReleased" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="MovieSongArtist">
+          <Key>
+            <PropertyRef Name="MovieSongArtistId" />
+          </Key>
+          <Property Name="MovieSongArtistId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MovieSongId" Type="Int32" Nullable="false" />
+          <Property Name="ArtistId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MovieSong" Relationship="ProjectManhattanModel.FK__MovieSong__Movie__2C3393D0" FromRole="MovieSongArtist" ToRole="MovieSong" />
+          <NavigationProperty Name="Artist" Relationship="ProjectManhattanModel.FK__MovieSong__Artis__2D27B809" FromRole="MovieSongArtist" ToRole="Artist" />
+        </EntityType>
+        <EntityType Name="MovieSong">
+          <Key>
+            <PropertyRef Name="MovieSongId" />
+          </Key>
+          <Property Name="MovieSongId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MovieId" Type="Int32" Nullable="false" />
+          <Property Name="SongName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="SongLyrics" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Movy" Relationship="ProjectManhattanModel.FK__MovieSong__Movie__286302EC" FromRole="MovieSong" ToRole="Movy" />
+          <NavigationProperty Name="MovieSongArtists" Relationship="ProjectManhattanModel.FK__MovieSong__Movie__2C3393D0" FromRole="MovieSong" ToRole="MovieSongArtist" />
+        </EntityType>
+        <EntityType Name="MovieTrailer">
+          <Key>
+            <PropertyRef Name="MovieTrailerId" />
+          </Key>
+          <Property Name="MovieTrailerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MovieId" Type="Int32" Nullable="false" />
+          <Property Name="TrailerPath" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="TrailerType" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Movy" Relationship="ProjectManhattanModel.FK__MovieTrai__Movie__4F7CD00D" FromRole="MovieTrailer" ToRole="Movy" />
+        </EntityType>
+        <EntityType Name="Schedule">
+          <Key>
+            <PropertyRef Name="ScheduleId" />
+          </Key>
+          <Property Name="ScheduleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MovieId" Type="Int32" Nullable="false" />
+          <Property Name="TheatreId" Type="Int32" Nullable="false" />
+          <Property Name="ScheduleTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ScheduleScreenName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Movy" Relationship="ProjectManhattanModel.FK__Schedule__MovieI__3F466844" FromRole="Schedule" ToRole="Movy" />
+          <NavigationProperty Name="Theatre" Relationship="ProjectManhattanModel.FK__Schedule__Theatr__403A8C7D" FromRole="Schedule" ToRole="Theatre" />
+        </EntityType>
+        <EntityType Name="Theatre">
+          <Key>
+            <PropertyRef Name="TheatreId" />
+          </Key>
+          <Property Name="TheatreId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TheatreName" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="TheatreLatitude" Type="Double" />
+          <Property Name="TheatreLongitude" Type="Double" />
+          <Property Name="NumberOfScreens" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Schedules" Relationship="ProjectManhattanModel.FK__Schedule__Theatr__403A8C7D" FromRole="Theatre" ToRole="Schedule" />
+        </EntityType>
+        <EntityType Name="UserPreference">
+          <Key>
+            <PropertyRef Name="UserPreferenceId" />
+          </Key>
+          <Property Name="UserPreferenceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="LanguageId" Type="Int32" Nullable="false" />
+          <Property Name="Address1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Address2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ZipCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Language" Relationship="ProjectManhattanModel.FK__UserPrefe__Langu__6383C8BA" FromRole="UserPreference" ToRole="Language" />
+          <NavigationProperty Name="User" Relationship="ProjectManhattanModel.FK__UserPrefe__UserI__628FA481" FromRole="UserPreference" ToRole="User" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="BlogURL" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="FacebookId" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="TwitterId" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="UserPreferences" Relationship="ProjectManhattanModel.FK__UserPrefe__UserI__628FA481" FromRole="User" ToRole="UserPreference" />
+        </EntityType>
+        <EntityType Name="UserMovieRating">
+          <Key>
+            <PropertyRef Name="UserMovieRatingId" />
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="MovieId" />
+            <PropertyRef Name="RatingDate" />
+          </Key>
+          <Property Name="UserMovieRatingId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="MovieId" Type="Int32" Nullable="false" />
+          <Property Name="Rating" Type="Decimal" Precision="5" Scale="3" />
+          <Property Name="ReviewDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RatingDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Movy" Relationship="ProjectManhattanModel.FK_UserMovieRatings_ToTable" FromRole="UserMovieRating" ToRole="Movy" />
+        </EntityType>
+        <Association Name="FK__CriticMov__Criti__37A5467C">
+          <End Type="ProjectManhattanModel.Critic" Role="Critic" Multiplicity="1" />
+          <End Type="ProjectManhattanModel.CriticMovieRating" Role="CriticMovieRating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Critic">
+              <PropertyRef Name="CriticId" />
+            </Principal>
+            <Dependent Role="CriticMovieRating">
+              <PropertyRef Name="CriticId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CriticMov__Movie__38996AB5">
+          <End Type="ProjectManhattanModel.Movie" Role="Movy" Multiplicity="1" />
+          <End Type="ProjectManhattanModel.CriticMovieRating" Role="CriticMovieRating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movy">
+              <PropertyRef Name="MovieId" />
+            </Principal>
+            <Dependent Role="CriticMovieRating">
+              <PropertyRef Name="MovieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MovieDist__Distr__5FB337D6">
+          <End Type="ProjectManhattanModel.Distributor" Role="Distributor" Multiplicity="1" />
+          <End Type="ProjectManhattanModel.MovieDistributor" Role="MovieDistributor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Distributor">
+              <PropertyRef Name="DistributorId" />
+            </Principal>
+            <Dependent Role="MovieDistributor">
+              <PropertyRef Name="DistributorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Finance__MovieId__4316F928">
+          <End Type="ProjectManhattanModel.Movie" Role="Movy" Multiplicity="1" />
+          <End Type="ProjectManhattanModel.Finance" Role="Finance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movy">
+              <PropertyRef Name="MovieId" />
+            </Principal>
+            <Dependent Role="Finance">
+              <PropertyRef Name="MovieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Movie__LanguageI__1A14E395">
+          <End Type="ProjectManhattanModel.Language" Role="Language" Multiplicity="1" />
+          <End Type="ProjectManhattanModel.Movie" Role="Movy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Language">
+              <PropertyRef Name="LanguageId" />
+            </Principal>
+            <Dependent Role="Movy">
+              <PropertyRef Name="LanguageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserPrefe__Langu__6383C8BA">
+          <End Type="ProjectManhattanModel.Language" Role="Language" Multiplicity="1" />
+          <End Type="ProjectManhattanModel.UserPreference" Role="UserPreference" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Language">
+              <PropertyRef Name="LanguageId" />
+            </Principal>
+            <Dependent Role="UserPreference">
+              <PropertyRef Name="LanguageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MovieArti__Movie__1CF15040">
+          <End Type="ProjectManhattanModel.Movie" Role="Movy" Multiplicity="1" />
+          <End Type="ProjectManhattanModel.MovieArtist" Role="MovieArtist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movy">
+              <PropertyRef Name="MovieId" />
+            </Principal>
+            <Dependent Role="MovieArtist">
+              <PropertyRef Name="MovieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MovieDist__Movie__5EBF139D">
+          <End Type="ProjectManhattanModel.Movie" Role="Movy" Multiplicity="1" />
+          <End Type="ProjectManhattanModel.MovieDistributor" Role="MovieDistributor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movy">
+              <PropertyRef Name="MovieId" />
+            </Principal>
+            <Dependent Role="MovieDistributor">
+              <PropertyRef Name="MovieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MoviePhot__Movie__693CA210">
+          <End Type="ProjectManhattanModel.MoviePhoto" Role="MoviePhoto" Multiplicity="1" />
+          <End Type="ProjectManhattanModel.MoviePhotoArtist" Role="MoviePhotoArtist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MoviePhoto">
+              <PropertyRef Name="MoviePhotoId" />
+            </Principal>
+            <Dependent Role="MoviePhotoArtist">
+              <PropertyRef Name="MoviePhotoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MoviePhot__Movie__66603565">
+          <End Type="ProjectManhattanModel.Movie" Role="Movy" Multiplicity="1" />
+          <End Type="ProjectManhattanModel.MoviePhoto" Role="MoviePhoto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movy">
+              <PropertyRef Name="MovieId" />
+            </Principal>
+            <Dependent Role="MoviePhoto">
+              <PropertyRef Name="MovieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MovieSong__Movie__286302EC">
+          <End Type="ProjectManhattanModel.Movie" Role="Movy" Multiplicity="1" />
+          <End Type="ProjectManhattanModel.MovieSong" Role="MovieSong" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movy">
+              <PropertyRef Name="MovieId" />
+            </Principal>
+            <Dependent Role="MovieSong">
+              <PropertyRef Name="MovieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MovieTrai__Movie__4F7CD00D">
+          <End Type="ProjectManhattanModel.Movie" Role="Movy" Multiplicity="1" />
+          <End Type="ProjectManhattanModel.MovieTrailer" Role="MovieTrailer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movy">
+              <PropertyRef Name="MovieId" />
+            </Principal>
+            <Dependent Role="MovieTrailer">
+              <PropertyRef Name="MovieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Schedule__MovieI__3F466844">
+          <End Type="ProjectManhattanModel.Movie" Role="Movy" Multiplicity="1" />
+          <End Type="ProjectManhattanModel.Schedule" Role="Schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movy">
+              <PropertyRef Name="MovieId" />
+            </Principal>
+            <Dependent Role="Schedule">
+              <PropertyRef Name="MovieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserMovieRatings_ToTable">
+          <End Type="ProjectManhattanModel.Movie" Role="Movy" Multiplicity="1" />
+          <End Type="ProjectManhattanModel.UserMovieRating" Role="UserMovieRating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movy">
+              <PropertyRef Name="MovieId" />
+            </Principal>
+            <Dependent Role="UserMovieRating">
+              <PropertyRef Name="MovieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MovieSong__Movie__2C3393D0">
+          <End Type="ProjectManhattanModel.MovieSong" Role="MovieSong" Multiplicity="1" />
+          <End Type="ProjectManhattanModel.MovieSongArtist" Role="MovieSongArtist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MovieSong">
+              <PropertyRef Name="MovieSongId" />
+            </Principal>
+            <Dependent Role="MovieSongArtist">
+              <PropertyRef Name="MovieSongId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Schedule__Theatr__403A8C7D">
+          <End Type="ProjectManhattanModel.Theatre" Role="Theatre" Multiplicity="1" />
+          <End Type="ProjectManhattanModel.Schedule" Role="Schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Theatre">
+              <PropertyRef Name="TheatreId" />
+            </Principal>
+            <Dependent Role="Schedule">
+              <PropertyRef Name="TheatreId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserPrefe__UserI__628FA481">
+          <End Type="ProjectManhattanModel.User" Role="User" Multiplicity="1" />
+          <End Type="ProjectManhattanModel.UserPreference" Role="UserPreference" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserPreference">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ArtistType">
+          <Key>
+            <PropertyRef Name="ArtistTypeId" />
+          </Key>
+          <Property Name="ArtistTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ArtistTypeName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Artists" Relationship="ProjectManhattanModel.FK_Artists_ToTable" FromRole="ArtistType" ToRole="Artist" />
+        </EntityType>
+        <EntityType Name="Artist">
+          <Key>
+            <PropertyRef Name="ArtistId" />
+          </Key>
+          <Property Name="ArtistId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ArtistName" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ArtistDOB" Type="DateTime" Precision="3" />
+          <Property Name="ArtistTitle" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ArtistNickName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ArtistTypeId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MovieArtists" Relationship="ProjectManhattanModel.FK__MovieArti__Artis__1DE57479" FromRole="Artist" ToRole="MovieArtist" />
+          <NavigationProperty Name="MoviePhotoArtists" Relationship="ProjectManhattanModel.FK__MoviePhot__Artis__6A30C649" FromRole="Artist" ToRole="MoviePhotoArtist" />
+          <NavigationProperty Name="MovieSongArtists" Relationship="ProjectManhattanModel.FK__MovieSong__Artis__2D27B809" FromRole="Artist" ToRole="MovieSongArtist" />
+          <NavigationProperty Name="ArtistType" Relationship="ProjectManhattanModel.FK_Artists_ToTable" FromRole="Artist" ToRole="ArtistType" />
+        </EntityType>
+        <Association Name="FK__MovieArti__Artis__1DE57479">
+          <End Type="ProjectManhattanModel.Artist" Role="Artist" Multiplicity="1" />
+          <End Type="ProjectManhattanModel.MovieArtist" Role="MovieArtist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artist">
+              <PropertyRef Name="ArtistId" />
+            </Principal>
+            <Dependent Role="MovieArtist">
+              <PropertyRef Name="ArtistId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MoviePhot__Artis__6A30C649">
+          <End Type="ProjectManhattanModel.Artist" Role="Artist" Multiplicity="1" />
+          <End Type="ProjectManhattanModel.MoviePhotoArtist" Role="MoviePhotoArtist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artist">
+              <PropertyRef Name="ArtistId" />
+            </Principal>
+            <Dependent Role="MoviePhotoArtist">
+              <PropertyRef Name="ArtistId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MovieSong__Artis__2D27B809">
+          <End Type="ProjectManhattanModel.Artist" Role="Artist" Multiplicity="1" />
+          <End Type="ProjectManhattanModel.MovieSongArtist" Role="MovieSongArtist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artist">
+              <PropertyRef Name="ArtistId" />
+            </Principal>
+            <Dependent Role="MovieSongArtist">
+              <PropertyRef Name="ArtistId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Artists_ToTable">
+          <End Type="ProjectManhattanModel.ArtistType" Role="ArtistType" Multiplicity="1" />
+          <End Type="ProjectManhattanModel.Artist" Role="Artist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ArtistType">
+              <PropertyRef Name="ArtistTypeId" />
+            </Principal>
+            <Dependent Role="Artist">
+              <PropertyRef Name="ArtistTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ProjectManhattanModelStoreContainer" CdmEntityContainer="ProjectManhattanEntities1">
+          <EntitySetMapping Name="CriticMovieRatings">
+            <EntityTypeMapping TypeName="ProjectManhattanModel.CriticMovieRating">
+              <MappingFragment StoreEntitySet="CriticMovieRatings">
+                <ScalarProperty Name="RatingDate" ColumnName="RatingDate" />
+                <ScalarProperty Name="ReviewDescription" ColumnName="ReviewDescription" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="MovieId" ColumnName="MovieId" />
+                <ScalarProperty Name="CriticId" ColumnName="CriticId" />
+                <ScalarProperty Name="CriticMovieRatingId" ColumnName="CriticMovieRatingId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Critics">
+            <EntityTypeMapping TypeName="ProjectManhattanModel.Critic">
+              <MappingFragment StoreEntitySet="Critics">
+                <ScalarProperty Name="AlexaRating" ColumnName="AlexaRating" />
+                <ScalarProperty Name="WebUrl" ColumnName="WebUrl" />
+                <ScalarProperty Name="SiteName" ColumnName="SiteName" />
+                <ScalarProperty Name="CriticId" ColumnName="CriticId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Distributors">
+            <EntityTypeMapping TypeName="ProjectManhattanModel.Distributor">
+              <MappingFragment StoreEntitySet="Distributors">
+                <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+                <ScalarProperty Name="ContactPersonName" ColumnName="ContactPersonName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="DistributorId" ColumnName="DistributorId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Finances">
+            <EntityTypeMapping TypeName="ProjectManhattanModel.Finance">
+              <MappingFragment StoreEntitySet="Finances">
+                <ScalarProperty Name="MovieProductionDuration" ColumnName="MovieProductionDuration" />
+                <ScalarProperty Name="MovieProductionCost" ColumnName="MovieProductionCost" />
+                <ScalarProperty Name="MovieId" ColumnName="MovieId" />
+                <ScalarProperty Name="FinanceId" ColumnName="FinanceId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Languages">
+            <EntityTypeMapping TypeName="ProjectManhattanModel.Language">
+              <MappingFragment StoreEntitySet="Languages">
+                <ScalarProperty Name="LanguageName" ColumnName="LanguageName" />
+                <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MovieArtists">
+            <EntityTypeMapping TypeName="ProjectManhattanModel.MovieArtist">
+              <MappingFragment StoreEntitySet="MovieArtists">
+                <ScalarProperty Name="ArtistId" ColumnName="ArtistId" />
+                <ScalarProperty Name="MovieId" ColumnName="MovieId" />
+                <ScalarProperty Name="MovieArtistId" ColumnName="MovieArtistId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MovieDistributors">
+            <EntityTypeMapping TypeName="ProjectManhattanModel.MovieDistributor">
+              <MappingFragment StoreEntitySet="MovieDistributors">
+                <ScalarProperty Name="DistributorId" ColumnName="DistributorId" />
+                <ScalarProperty Name="MovieId" ColumnName="MovieId" />
+                <ScalarProperty Name="MovieDistributorId" ColumnName="MovieDistributorId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MoviePhotoArtists">
+            <EntityTypeMapping TypeName="ProjectManhattanModel.MoviePhotoArtist">
+              <MappingFragment StoreEntitySet="MoviePhotoArtists">
+                <ScalarProperty Name="ArtistId" ColumnName="ArtistId" />
+                <ScalarProperty Name="MoviePhotoId" ColumnName="MoviePhotoId" />
+                <ScalarProperty Name="MoviePhotoArtistId" ColumnName="MoviePhotoArtistId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MoviePhotoes">
+            <EntityTypeMapping TypeName="ProjectManhattanModel.MoviePhoto">
+              <MappingFragment StoreEntitySet="MoviePhotoes">
+                <ScalarProperty Name="MoviePhotoURL" ColumnName="MoviePhotoURL" />
+                <ScalarProperty Name="MovieId" ColumnName="MovieId" />
+                <ScalarProperty Name="MoviePhotoId" ColumnName="MoviePhotoId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Movies">
+            <EntityTypeMapping TypeName="ProjectManhattanModel.Movie">
+              <MappingFragment StoreEntitySet="Movies">
+                <ScalarProperty Name="HasReleased" ColumnName="HasReleased" />
+                <ScalarProperty Name="LargePicture" ColumnName="LargePicture" />
+                <ScalarProperty Name="SmallPicture" ColumnName="SmallPicture" />
+                <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+                <ScalarProperty Name="ReleaseDate" ColumnName="ReleaseDate" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="MovieId" ColumnName="MovieId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MovieSongArtists">
+            <EntityTypeMapping TypeName="ProjectManhattanModel.MovieSongArtist">
+              <MappingFragment StoreEntitySet="MovieSongArtists">
+                <ScalarProperty Name="ArtistId" ColumnName="ArtistId" />
+                <ScalarProperty Name="MovieSongId" ColumnName="MovieSongId" />
+                <ScalarProperty Name="MovieSongArtistId" ColumnName="MovieSongArtistId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MovieSongs">
+            <EntityTypeMapping TypeName="ProjectManhattanModel.MovieSong">
+              <MappingFragment StoreEntitySet="MovieSongs">
+                <ScalarProperty Name="SongLyrics" ColumnName="SongLyrics" />
+                <ScalarProperty Name="SongName" ColumnName="SongName" />
+                <ScalarProperty Name="MovieId" ColumnName="MovieId" />
+                <ScalarProperty Name="MovieSongId" ColumnName="MovieSongId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MovieTrailers">
+            <EntityTypeMapping TypeName="ProjectManhattanModel.MovieTrailer">
+              <MappingFragment StoreEntitySet="MovieTrailers">
+                <ScalarProperty Name="TrailerType" ColumnName="TrailerType" />
+                <ScalarProperty Name="TrailerPath" ColumnName="TrailerPath" />
+                <ScalarProperty Name="MovieId" ColumnName="MovieId" />
+                <ScalarProperty Name="MovieTrailerId" ColumnName="MovieTrailerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Schedules">
+            <EntityTypeMapping TypeName="ProjectManhattanModel.Schedule">
+              <MappingFragment StoreEntitySet="Schedules">
+                <ScalarProperty Name="ScheduleScreenName" ColumnName="ScheduleScreenName" />
+                <ScalarProperty Name="ScheduleTime" ColumnName="ScheduleTime" />
+                <ScalarProperty Name="TheatreId" ColumnName="TheatreId" />
+                <ScalarProperty Name="MovieId" ColumnName="MovieId" />
+                <ScalarProperty Name="ScheduleId" ColumnName="ScheduleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Theatres">
+            <EntityTypeMapping TypeName="ProjectManhattanModel.Theatre">
+              <MappingFragment StoreEntitySet="Theatres">
+                <ScalarProperty Name="NumberOfScreens" ColumnName="NumberOfScreens" />
+                <ScalarProperty Name="TheatreLongitude" ColumnName="TheatreLongitude" />
+                <ScalarProperty Name="TheatreLatitude" ColumnName="TheatreLatitude" />
+                <ScalarProperty Name="TheatreName" ColumnName="TheatreName" />
+                <ScalarProperty Name="TheatreId" ColumnName="TheatreId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserPreferences">
+            <EntityTypeMapping TypeName="ProjectManhattanModel.UserPreference">
+              <MappingFragment StoreEntitySet="UserPreferences">
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserPreferenceId" ColumnName="UserPreferenceId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="ProjectManhattanModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="TwitterId" ColumnName="TwitterId" />
+                <ScalarProperty Name="FacebookId" ColumnName="FacebookId" />
+                <ScalarProperty Name="BlogURL" ColumnName="BlogURL" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserMovieRatings">
+            <EntityTypeMapping TypeName="ProjectManhattanModel.UserMovieRating">
+              <MappingFragment StoreEntitySet="UserMovieRatings">
+                <ScalarProperty Name="RatingDate" ColumnName="RatingDate" />
+                <ScalarProperty Name="ReviewDescription" ColumnName="ReviewDescription" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="MovieId" ColumnName="MovieId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserMovieRatingId" ColumnName="UserMovieRatingId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ArtistTypes">
+            <EntityTypeMapping TypeName="ProjectManhattanModel.ArtistType">
+              <MappingFragment StoreEntitySet="ArtistTypes">
+                <ScalarProperty Name="ArtistTypeName" ColumnName="ArtistTypeName" />
+                <ScalarProperty Name="ArtistTypeId" ColumnName="ArtistTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Artists">
+            <EntityTypeMapping TypeName="ProjectManhattanModel.Artist">
+              <MappingFragment StoreEntitySet="Artists">
+                <ScalarProperty Name="ArtistTypeId" ColumnName="ArtistTypeId" />
+                <ScalarProperty Name="ArtistNickName" ColumnName="ArtistNickName" />
+                <ScalarProperty Name="ArtistTitle" ColumnName="ArtistTitle" />
+                <ScalarProperty Name="ArtistDOB" ColumnName="ArtistDOB" />
+                <ScalarProperty Name="ArtistName" ColumnName="ArtistName" />
+                <ScalarProperty Name="ArtistId" ColumnName="ArtistId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Default" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<resources>
+    <dimen name="md_ratingCont_height">240dp</dimen>
+    <dimen name="Rating_Text">50dp</dimen>
+    <dimen name="smilley_size">40dp</dimen>
+    <dimen name="md_dp_height">250dp</dimen>
+  <dimen name="hs_banner_height">100dp</dimen>
+  
+</resources>

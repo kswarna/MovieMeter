@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BA37B29D-F2D0-4B1D-9BB8-208148DFBD36}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ProjectManhattan.DTO</RootNamespace>
+    <AssemblyName>ProjectManhattan.DTO</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkProfile>Profile259</TargetFrameworkProfile>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .NET Framework is automatically included -->
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DbTableDTO\ArtistDTO.cs" />
+    <Compile Include="DbTableDTO\ArtistTypeDTO.cs" />
+    <Compile Include="DbTableDTO\CriticArtistRatingDTO.cs" />
+    <Compile Include="DbTableDTO\CriticDTO.cs" />
+    <Compile Include="DbTableDTO\CriticMovieRatingDTO.cs" />
+    <Compile Include="DbTableDTO\CriticRatingDTO.cs" />
+    <Compile Include="DbTableDTO\DistributorDTO.cs" />
+    <Compile Include="DbTableDTO\FinanceDTO.cs" />
+    <Compile Include="DbTableDTO\LanguageDTO.cs" />
+    <Compile Include="DbTableDTO\MovieArtistDTO.cs" />
+    <Compile Include="DbTableDTO\MovieDetailDTO.cs" />
+    <Compile Include="DbTableDTO\MovieDistributorDTO.cs" />
+    <Compile Include="DbTableDTO\MovieDTO.cs" />
+    <Compile Include="DbTableDTO\MoviePhotoArtistDTO.cs" />
+    <Compile Include="DbTableDTO\MoviePhotoDTO.cs" />
+    <Compile Include="DbTableDTO\MovieSongArtistDTO.cs" />
+    <Compile Include="DbTableDTO\MovieSongDTO.cs" />
+    <Compile Include="DbTableDTO\MovieSummaryDTO.cs" />
+    <Compile Include="DbTableDTO\MovieTrailerDTO.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DbTableDTO\ScheduleDTO.cs" />
+    <Compile Include="DbTableDTO\TheatreDTO.cs" />
+    <Compile Include="DbTableDTO\UserArtistRatingDTO.cs" />
+    <Compile Include="DbTableDTO\UserCommentDTO.cs" />
+    <Compile Include="DbTableDTO\UserDTO.cs" />
+    <Compile Include="DbTableDTO\UserMovieRatingtDTO.cs" />
+    <Compile Include="DbTableDTO\UserPreferenceDTO.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

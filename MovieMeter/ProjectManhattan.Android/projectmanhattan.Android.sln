@@ -1,0 +1,63 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectManhattan.DTO", "..\ProjectManhattan.DTO\ProjectManhattan.DTO.csproj", "{BA37B29D-F2D0-4B1D-9BB8-208148DFBD36}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectManhattan.Client.BL", "..\ProjectManhattan.Client.BL\ProjectManhattan.Client.BL.csproj", "{25CAD9D3-6355-49BE-B115-840D49386CCB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projectmanhattan.Client.DL", "..\Projectmanhattan.Client.DL\Projectmanhattan.Client.DL.csproj", "{CAF4FFE4-2938-4722-B5D2-BEE6AC2D7E4A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectManhattanApp", "ProjectManhattanApp\ProjectManhattanApp.csproj", "{F1987074-9667-430E-9101-79D86E4F5DA8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BA37B29D-F2D0-4B1D-9BB8-208148DFBD36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA37B29D-F2D0-4B1D-9BB8-208148DFBD36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA37B29D-F2D0-4B1D-9BB8-208148DFBD36}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{BA37B29D-F2D0-4B1D-9BB8-208148DFBD36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA37B29D-F2D0-4B1D-9BB8-208148DFBD36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25CAD9D3-6355-49BE-B115-840D49386CCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25CAD9D3-6355-49BE-B115-840D49386CCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25CAD9D3-6355-49BE-B115-840D49386CCB}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{25CAD9D3-6355-49BE-B115-840D49386CCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25CAD9D3-6355-49BE-B115-840D49386CCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAF4FFE4-2938-4722-B5D2-BEE6AC2D7E4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAF4FFE4-2938-4722-B5D2-BEE6AC2D7E4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAF4FFE4-2938-4722-B5D2-BEE6AC2D7E4A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{CAF4FFE4-2938-4722-B5D2-BEE6AC2D7E4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAF4FFE4-2938-4722-B5D2-BEE6AC2D7E4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1987074-9667-430E-9101-79D86E4F5DA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1987074-9667-430E-9101-79D86E4F5DA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1987074-9667-430E-9101-79D86E4F5DA8}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{F1987074-9667-430E-9101-79D86E4F5DA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1987074-9667-430E-9101-79D86E4F5DA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1987074-9667-430E-9101-79D86E4F5DA8}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://floydtech.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ..\\ProjectManhattan.DTO\\ProjectManhattan.DTO.csproj
+		SccProjectName1 = ../ProjectManhattan.DTO
+		SccLocalPath1 = ..\\ProjectManhattan.DTO
+		SccProjectUniqueName2 = ..\\ProjectManhattan.Client.BL\\ProjectManhattan.Client.BL.csproj
+		SccProjectName2 = ../ProjectManhattan.Client.BL
+		SccLocalPath2 = ..\\ProjectManhattan.Client.BL
+		SccProjectUniqueName3 = ..\\Projectmanhattan.Client.DL\\Projectmanhattan.Client.DL.csproj
+		SccProjectName3 = ../Projectmanhattan.Client.DL
+		SccLocalPath3 = ..\\Projectmanhattan.Client.DL
+		SccProjectUniqueName4 = ProjectManhattanApp\\ProjectManhattanApp.csproj
+		SccProjectName4 = ProjectManhattanApp
+		SccLocalPath4 = ProjectManhattanApp
+	EndGlobalSection
+EndGlobal

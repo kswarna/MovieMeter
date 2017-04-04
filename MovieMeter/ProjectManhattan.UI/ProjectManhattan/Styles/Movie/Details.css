@@ -1,0 +1,99 @@
+﻿@media only screen and (max-width:1000px) {
+    .details-picture {
+        width: 100%;
+    }
+
+    .details-ratings {
+        width: 100%;
+        min-width: 530px;
+    }
+
+    #LargeImage {
+        width: 100%;
+    }
+}
+#RatingsBox
+{
+    height:300px;
+}
+    @media only screen and (min-width:1000px){
+        .details-picture{
+    width:70%;
+    margin:0px;
+}
+
+.details-ratings{
+    width:28%;
+}
+
+#LargeImage {
+    width: 100%;
+}
+    }
+
+#wiki {
+    position: absolute;
+    z-index: 100;
+    height: auto;
+    width: 2.5%;
+    margin: 10px;
+}
+
+#gallery {
+    position: absolute;
+    z-index: 100;
+    height: auto;
+    width: 2.5%;
+    margin: 10px;
+    margin-top: 75px;
+}
+
+#trailler {
+    position: absolute;
+    z-index: 100;
+    height: auto;
+    width: 2.5%;
+    margin: 10px;
+    margin-top: 140px;
+}
+
+#schedule {
+    position: absolute;
+    z-index: 100;
+    height: auto;
+    width: 2.5%;
+    margin: 10px;
+    margin-top: 205px;
+}
+
+
+#RatingsBox .chart {
+    position:relative;
+    margin:20px;
+    width:220px; height:220px;
+}
+#RatingsBox canvas {
+    display: block;
+    position:absolute;
+    top:0;
+    left:0;
+}
+#RatingsBox span {
+    color:#555;
+    display:block;
+    /*line-height:220px;*/
+    text-align:center;
+    /*width:220px;*/
+    font-family:sans-serif;
+    /*font-size:40px;*/
+    font-weight:100;
+    margin-left:5px;
+}
+
+#RatingsBox input {
+    width: 200px;
+}
+
+.hoverInvertColor{
+background-color:white;
+}

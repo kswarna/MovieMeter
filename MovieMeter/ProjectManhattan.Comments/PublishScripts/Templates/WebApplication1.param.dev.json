@@ -1,0 +1,29 @@
+{
+  "siteName": {
+    "value": "mmComments"
+  },
+  "hostingPlanName": {
+    "value": "mmComments"
+  },
+  "siteLocation": {
+    "value": "East US 2"
+  },
+  "sku": {
+    "value": "Free"
+  },
+  "workerSize": {
+    "value": "0"
+  },
+  "siteMode": {
+    "value": "Limited"
+  },
+  "computeMode": {
+    "value": "0"
+  },
+  "subscriptionId": {
+    "value": "32d35beb-df2a-4575-99b5-7f99387a7938"
+  },
+  "resourceGroup": {
+    "value": "VS-FloydTech-Group"
+  }
+}

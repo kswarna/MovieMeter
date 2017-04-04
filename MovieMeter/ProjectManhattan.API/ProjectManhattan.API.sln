@@ -1,0 +1,111 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectManhattan.Model", "ProjectManhattan.Model\ProjectManhattan.Model.csproj", "{38138BD1-952F-4E10-9E10-D6785E97D584}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectManhattan.Repository", "ProjectManhattan.Repository\ProjectManhattan.Repository.csproj", "{2ABBF5F5-A986-4D3C-AC81-A59DCA3D2483}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectManhattan.DTO", "..\ProjectManhattan.DTO\ProjectManhattan.DTO.csproj", "{BA37B29D-F2D0-4B1D-9BB8-208148DFBD36}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectManhattan.API", "ProjectManhattan.API\ProjectManhattan.API.csproj", "{834C373C-C26C-477E-B5A9-FDDA4F065FEB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectManhattan.Repository.Tests", "ProjectManhattan.Repository.Tests\ProjectManhattan.Repository.Tests.csproj", "{07D180CF-6BE0-41C6-823B-BC4DFC44E2CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlobDataAccess", "..\BlobDataAccess\BlobDataAccess.csproj", "{43D347E7-51B4-4A7B-A928-092A914F298D}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "ProjectManhattan.DataLoader", "..\ProjectManhattan.DataLoader", "{3135ED16-3083-433C-8972-E096471B3CE1}"
+	ProjectSection(WebsiteProperties) = preProject
+		SccProjectName = "SAK"
+		SccAuxPath = "SAK"
+		SccLocalPath = "SAK"
+		SccProvider = "SAK"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6"
+		ProjectReferences = "{43D347E7-51B4-4A7B-A928-092A914F298D}|BlobDataAccess.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_63689"
+		Debug.AspNetCompiler.PhysicalPath = "..\ProjectManhattan.DataLoader\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_63689\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_63689"
+		Release.AspNetCompiler.PhysicalPath = "..\ProjectManhattan.DataLoader\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_63689\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "63689"
+		SlnRelativePath = "..\ProjectManhattan.DataLoader\"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{38138BD1-952F-4E10-9E10-D6785E97D584}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38138BD1-952F-4E10-9E10-D6785E97D584}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38138BD1-952F-4E10-9E10-D6785E97D584}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38138BD1-952F-4E10-9E10-D6785E97D584}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2ABBF5F5-A986-4D3C-AC81-A59DCA3D2483}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2ABBF5F5-A986-4D3C-AC81-A59DCA3D2483}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2ABBF5F5-A986-4D3C-AC81-A59DCA3D2483}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2ABBF5F5-A986-4D3C-AC81-A59DCA3D2483}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA37B29D-F2D0-4B1D-9BB8-208148DFBD36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA37B29D-F2D0-4B1D-9BB8-208148DFBD36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA37B29D-F2D0-4B1D-9BB8-208148DFBD36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA37B29D-F2D0-4B1D-9BB8-208148DFBD36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{834C373C-C26C-477E-B5A9-FDDA4F065FEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{834C373C-C26C-477E-B5A9-FDDA4F065FEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{834C373C-C26C-477E-B5A9-FDDA4F065FEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{834C373C-C26C-477E-B5A9-FDDA4F065FEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07D180CF-6BE0-41C6-823B-BC4DFC44E2CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07D180CF-6BE0-41C6-823B-BC4DFC44E2CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07D180CF-6BE0-41C6-823B-BC4DFC44E2CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07D180CF-6BE0-41C6-823B-BC4DFC44E2CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43D347E7-51B4-4A7B-A928-092A914F298D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43D347E7-51B4-4A7B-A928-092A914F298D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43D347E7-51B4-4A7B-A928-092A914F298D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43D347E7-51B4-4A7B-A928-092A914F298D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3135ED16-3083-433C-8972-E096471B3CE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3135ED16-3083-433C-8972-E096471B3CE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3135ED16-3083-433C-8972-E096471B3CE1}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{3135ED16-3083-433C-8972-E096471B3CE1}.Release|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 8
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://floydtech.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ProjectManhattan.API\\ProjectManhattan.API.csproj
+		SccProjectName1 = ProjectManhattan.API
+		SccLocalPath1 = ProjectManhattan.API
+		SccProjectUniqueName2 = ProjectManhattan.Model\\ProjectManhattan.Model.csproj
+		SccProjectName2 = ProjectManhattan.Model
+		SccLocalPath2 = ProjectManhattan.Model
+		SccProjectUniqueName3 = ProjectManhattan.Repository\\ProjectManhattan.Repository.csproj
+		SccProjectName3 = ProjectManhattan.Repository
+		SccLocalPath3 = ProjectManhattan.Repository
+		SccProjectUniqueName4 = ..\\ProjectManhattan.DTO\\ProjectManhattan.DTO.csproj
+		SccProjectName4 = ../ProjectManhattan.DTO
+		SccLocalPath4 = ..\\ProjectManhattan.DTO
+		SccProjectUniqueName5 = ProjectManhattan.Repository.Tests\\ProjectManhattan.Repository.Tests.csproj
+		SccProjectName5 = ProjectManhattan.Repository.Tests
+		SccLocalPath5 = ProjectManhattan.Repository.Tests
+		SccProjectUniqueName6 = ..\\BlobDataAccess\\BlobDataAccess.csproj
+		SccProjectName6 = ../BlobDataAccess
+		SccLocalPath6 = ..\\BlobDataAccess
+		SccWebProject7 = true
+		SccProjectUniqueName7 = ..\\ProjectManhattan.DataLoader
+		SccProjectName7 = ../ProjectManhattan.DataLoader
+		SccLocalPath7 = ..\\ProjectManhattan.DataLoader
+		SccProjectEnlistmentChoice7 = 2
+	EndGlobalSection
+EndGlobal

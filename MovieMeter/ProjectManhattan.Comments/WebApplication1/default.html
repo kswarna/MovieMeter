@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+</head>
+<body>
+    <div id="disqus_thread"></div>
+    
+    <script>
+
+
+        var disqus_config = function () {
+            var match,
+           pattern = /\+/g,
+           search = /([^&=]+)=?([^&]*)/g,
+           decode = function (s) { return decodeURIComponent(s.replace(pattern, " ")); },
+           query = window.location.search.substring(1);
+            params = {};
+            while (match = search.exec(query))
+                params[decode(match[1])] = decode(match[2]);
+            if (params["identifier"] == '')
+            {
+                throw Error;
+            }
+            this.page.identifier = params["identifier"]; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+            debugger;
+};
+
+        (function () { // DON'T EDIT BELOW THIS LINE
+            debugger;
+    var d = document, s = d.createElement('script');
+    s.src = '//projectmanhattan.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+})();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink"></a>
+</body>
+</html>

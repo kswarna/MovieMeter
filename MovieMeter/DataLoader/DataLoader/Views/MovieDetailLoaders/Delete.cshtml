@@ -1,0 +1,64 @@
+﻿@model DataLoader.MovieDetailLoader
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>MovieDetailLoader</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DetailsUrl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DetailsUrl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GalleryUrl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GalleryUrl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TraillerUrl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TraillerUrl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ScheduleUrl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ScheduleUrl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MovieLoader.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MovieLoader.Name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
